@@ -1,0 +1,411 @@
+[0912/120431.758:ERROR:viz_main_impl.cc(162)] Exiting GPU process due to errors during initialization
+[0912/120431.921:ERROR:viz_main_impl.cc(162)] Exiting GPU process due to errors during initialization
+[0912/120432.084:ERROR:gpu_init.cc(441)] Passthrough is not supported, GL is disabled
+[0912/122656.005:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122656.022:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122701.040:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122706.052:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122711.058:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122716.066:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122721.091:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122726.096:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122729.058:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122731.109:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122736.117:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122741.127:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122746.137:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122751.148:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122756.157:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122801.163:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122802.064:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122806.179:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122811.187:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122816.192:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122821.195:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122826.207:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122831.217:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122836.228:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122841.240:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122846.245:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122851.254:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122856.267:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122901.274:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122906.280:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122911.284:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122916.302:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122921.314:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122926.328:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122931.338:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122936.345:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122941.356:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122946.361:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122951.367:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/122956.377:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123001.394:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123006.409:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123011.428:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123016.445:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123021.456:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123026.470:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123031.474:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123036.486:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123041.501:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123046.516:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123051.527:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123054.804:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123056.542:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123059.820:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123101.552:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123104.837:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123106.560:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123109.845:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123111.576:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123114.859:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123116.589:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123119.868:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123121.609:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123124.872:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123126.625:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123129.882:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123131.634:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123134.889:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123136.642:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123139.906:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123141.652:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123144.920:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123146.663:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123149.930:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123151.678:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123154.945:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123156.688:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123159.962:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123201.706:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123204.969:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123206.719:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123209.982:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123211.734:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123214.990:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123216.752:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123219.995:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123221.766:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123225.000:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123226.779:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123230.012:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123231.794:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123235.029:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123236.798:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123240.037:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123241.800:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123245.053:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123246.808:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123250.064:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123251.822:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123255.075:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123256.839:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123300.081:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123301.858:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123305.096:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123306.873:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123310.101:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123311.879:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123315.108:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123316.884:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123320.112:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123321.889:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123325.123:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123326.899:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123330.136:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123331.916:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123333.725:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123333.725:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123333.743:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/123333.743:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/131831.475:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/131831.496:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/131836.515:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/131841.520:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/131846.540:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/131851.546:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/131856.556:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/131901.571:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/131906.098:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/131906.580:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/131911.589:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/131916.602:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/131921.609:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/131926.624:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/131931.630:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/131936.634:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/131939.126:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/131941.639:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/131946.646:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/131951.653:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/131956.659:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/132001.665:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/132006.683:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/132011.687:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/132016.699:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/132021.709:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/132026.720:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/132031.735:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/132035.138:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/132035.139:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/140802.640:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/140802.657:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142003.298:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142003.322:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142008.326:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142013.335:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142018.342:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142023.352:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142028.369:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142033.377:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142036.340:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142037.934:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142038.384:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142041.344:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142043.395:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142046.350:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142048.400:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142051.356:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142053.409:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142056.369:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142058.420:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142101.383:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142103.433:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142106.395:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142108.444:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/142110.876:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/152045.755:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/152110.694:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/152110.703:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/152316.774:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/152317.286:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/152322.296:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/152327.309:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/152332.314:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/152337.328:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/152342.338:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/152347.344:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/152352.349:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/152357.358:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/152402.363:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/152407.372:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/152412.389:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/152417.393:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/152422.399:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/173011.586:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/173119.328:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/173152.347:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/173207.575:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/173212.585:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/173217.594:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/173222.603:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/173225.375:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/173227.609:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/173232.625:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/173237.635:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/173242.650:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/173247.657:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/173252.667:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/173257.680:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/173258.392:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/173302.689:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0912/173307.706:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/100239.424:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/100239.424:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/100239.443:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/100239.449:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/104244.222:INFO:CONSOLE(11)] "Uncaught SyntaxError: Invalid or unexpected token", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (11)
+[0913/120134.921:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/120135.013:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/131521.417:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/131521.424:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140331.721:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140331.794:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140336.732:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140708.498:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140717.042:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140722.058:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140727.068:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140732.089:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140736.116:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140737.097:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140741.136:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140742.102:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140746.155:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140747.108:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140751.164:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140752.116:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140756.181:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140757.134:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140801.192:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140802.146:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140806.206:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140807.164:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140809.637:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140809.663:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0913/140811.213:WARNING:dns_config_service_win.cc(712)] Failed to read DnsConfig.
+[0915/025218.485:INFO:CONSOLE(4)] "Uncaught TypeError: Cannot read property 'getContext' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (4)
+[0915/030646.368:INFO:CONSOLE(13)] "Uncaught SyntaxError: Unexpected token ','", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (13)
+[0915/030703.172:INFO:CONSOLE(14)] "Uncaught TypeError: Failed to execute 'lineTo' on 'CanvasRenderingContext2D': 2 arguments required, but only 0 present.", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/030930.196:INFO:CONSOLE(16)] "Uncaught SyntaxError: missing ) after argument list", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (16)
+[0915/031642.735:INFO:CONSOLE(21)] "Uncaught TypeError: Failed to execute 'moveTo' on 'CanvasRenderingContext2D': 2 arguments required, but only 0 present.", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (21)
+[0915/031645.929:INFO:CONSOLE(21)] "Uncaught TypeError: Failed to execute 'moveTo' on 'CanvasRenderingContext2D': 2 arguments required, but only 0 present.", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (21)
+[0915/031722.601:INFO:CONSOLE(22)] "Uncaught TypeError: Failed to execute 'lineTo' on 'CanvasRenderingContext2D': 2 arguments required, but only 0 present.", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (22)
+[0915/031724.069:INFO:CONSOLE(22)] "Uncaught TypeError: Failed to execute 'lineTo' on 'CanvasRenderingContext2D': 2 arguments required, but only 0 present.", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (22)
+[0915/032604.479:INFO:CONSOLE(19)] "Uncaught SyntaxError: Unexpected string", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (19)
+[0915/034302.146:INFO:CONSOLE(65)] "Uncaught SyntaxError: missing ) after argument list", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (65)
+[0915/034305.890:INFO:CONSOLE(65)] "Uncaught SyntaxError: missing ) after argument list", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (65)
+[0915/034313.630:INFO:CONSOLE(65)] "Uncaught SyntaxError: missing ) after argument list", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (65)
+[0915/035106.297:INFO:CONSOLE(85)] "Uncaught SyntaxError: Invalid or unexpected token", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (85)
+[0915/040316.362:INFO:CONSOLE(7)] "Uncaught TypeError: Cannot set property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (7)
+[0915/040316.574:INFO:CONSOLE(7)] "Uncaught TypeError: Cannot set property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (7)
+[0915/040342.836:INFO:CONSOLE(7)] "Uncaught TypeError: Cannot set property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (7)
+[0915/040423.578:INFO:CONSOLE(7)] "Uncaught TypeError: Cannot set property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (7)
+[0915/040444.035:INFO:CONSOLE(7)] "Uncaught TypeError: Cannot set property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (7)
+[0915/040619.036:INFO:CONSOLE(7)] "Uncaught TypeError: Cannot set property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (7)
+[0915/040649.175:INFO:CONSOLE(7)] "Uncaught TypeError: Cannot set property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (7)
+[0915/040743.358:INFO:CONSOLE(7)] "Uncaught TypeError: Cannot set property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (7)
+[0915/040746.782:INFO:CONSOLE(7)] "Uncaught TypeError: Cannot set property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (7)
+[0915/040749.558:INFO:CONSOLE(7)] "Uncaught TypeError: Cannot set property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (7)
+[0915/040803.776:INFO:CONSOLE(7)] "Uncaught TypeError: Cannot set property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (7)
+[0915/040807.717:INFO:CONSOLE(7)] "Uncaught TypeError: Cannot set property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (7)
+[0915/040856.637:INFO:CONSOLE(7)] "Uncaught TypeError: Cannot set property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (7)
+[0915/040907.861:INFO:CONSOLE(92)] "Uncaught SyntaxError: Unexpected token '{'", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (92)
+[0915/040908.037:INFO:CONSOLE(92)] "Uncaught SyntaxError: Unexpected token '{'", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (92)
+[0915/040920.337:INFO:CONSOLE(92)] "Uncaught SyntaxError: Unexpected token '{'", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (92)
+[0915/040922.243:INFO:CONSOLE(92)] "Uncaught SyntaxError: Unexpected token '{'", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (92)
+[0915/040930.270:INFO:CONSOLE(89)] "Uncaught SyntaxError: Unexpected token '{'", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (89)
+[0915/040944.274:INFO:CONSOLE(93)] "Uncaught ReferenceError: slider is not defined", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (93)
+[0915/041058.000:INFO:CONSOLE(100)] "Uncaught ReferenceError: DrawHead is not defined", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (100)
+[0915/041214.039:INFO:CONSOLE(12)] "Uncaught ReferenceError: slider is not defined", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (12)
+[0915/041246.243:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041304.335:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041305.938:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041316.387:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041317.294:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041319.310:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041320.112:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041323.096:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041323.580:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041325.257:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041330.737:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041333.176:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041339.426:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041342.869:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041343.993:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041346.156:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041347.832:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041348.834:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041352.114:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041352.894:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041354.852:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041356.339:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041357.910:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041359.133:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041359.384:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041400.260:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041403.763:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041405.893:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041406.108:INFO:CONSOLE(14)] "Uncaught TypeError: Cannot read property 'value' of null", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (14)
+[0915/041937.764:INFO:CONSOLE(93)] "Uncaught SyntaxError: Invalid or unexpected token", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (93)
+[0915/042034.559:INFO:CONSOLE(106)] "Uncaught ReferenceError: DrawSnow is not defined", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (106)
+[0915/042036.756:INFO:CONSOLE(106)] "Uncaught ReferenceError: DrawSnow is not defined", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (106)
+[0915/043348.323:INFO:CONSOLE(104)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (104)
+[0915/043354.021:INFO:CONSOLE(105)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (105)
+[0915/043357.007:INFO:CONSOLE(105)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (105)
+[0915/043357.037:INFO:CONSOLE(105)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (105)
+[0915/043357.081:INFO:CONSOLE(105)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (105)
+[0915/043357.104:INFO:CONSOLE(105)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (105)
+[0915/043357.143:INFO:CONSOLE(105)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (105)
+[0915/043357.403:INFO:CONSOLE(105)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (105)
+[0915/043357.439:INFO:CONSOLE(105)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (105)
+[0915/043357.470:INFO:CONSOLE(105)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (105)
+[0915/043357.517:INFO:CONSOLE(105)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (105)
+[0915/043357.538:INFO:CONSOLE(105)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (105)
+[0915/043357.703:INFO:CONSOLE(105)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (105)
+[0915/043357.739:INFO:CONSOLE(105)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (105)
+[0915/043357.770:INFO:CONSOLE(105)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (105)
+[0915/043357.818:INFO:CONSOLE(105)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (105)
+[0915/043357.972:INFO:CONSOLE(105)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (105)
+[0915/043358.002:INFO:CONSOLE(105)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (105)
+[0915/043358.038:INFO:CONSOLE(105)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (105)
+[0915/043358.083:INFO:CONSOLE(105)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (105)
+[0915/043401.572:INFO:CONSOLE(105)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (105)
+[0915/043525.864:INFO:CONSOLE(105)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (105)
+[0915/043528.184:INFO:CONSOLE(105)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (105)
+[0915/043533.427:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043537.483:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043548.077:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043551.136:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043553.678:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043555.194:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043559.015:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043600.758:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043606.799:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043607.695:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043615.846:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043618.648:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043623.533:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043625.613:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043630.574:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043631.511:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043635.135:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043635.371:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043635.405:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043635.437:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043635.470:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043635.503:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043635.536:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043635.576:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043635.781:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043635.806:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043635.844:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043635.871:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043635.906:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043635.936:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043636.168:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043636.216:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043636.235:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043636.278:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043636.302:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043636.342:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043636.546:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043636.570:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043636.602:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043636.639:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043636.667:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043638.628:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043651.725:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043703.838:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043715.880:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043726.919:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043731.386:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043738.559:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043741.410:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043741.438:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043741.481:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043741.502:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043741.541:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043741.838:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043741.870:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043741.903:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043741.935:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043743.394:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043745.702:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043757.481:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043801.805:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/043804.589:INFO:CONSOLE(107)] "Uncaught TypeError: context.DrawBackground is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (107)
+[0915/044010.745:INFO:CONSOLE(100)] "Uncaught SyntaxError: Unexpected token ')'", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (100)
+[0915/044226.228:INFO:CONSOLE(100)] "Uncaught SyntaxError: Unexpected number", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (100)
+[0915/044240.080:INFO:CONSOLE(100)] "Uncaught TypeError: "rgb(" is not a function", source: file:///C:/Users/bruno/OneDrive/Documentos/GitHub/CS559F24_Demos/Week2/Demo3/demo.js (100)
+[0915/045305.594:ERROR:gpu_process_host.cc(995)] GPU process exited unexpectedly: exit_code=1073807364
+[0915/045305.594:WARNING:gpu_process_host.cc(1308)] The GPU process has crashed 1 time(s)
+[0915/045305.626:ERROR:network_service_instance_impl.cc(331)] Network service crashed, restarting service.
+[0915/045305.673:ERROR:gpu_process_host.cc(995)] GPU process exited unexpectedly: exit_code=-1073741205
+[0915/045305.673:WARNING:gpu_process_host.cc(1308)] The GPU process has crashed 2 time(s)
+[0915/045305.673:ERROR:network_service_instance_impl.cc(331)] Network service crashed, restarting service.
+[0915/045305.689:ERROR:gpu_process_host.cc(995)] GPU process exited unexpectedly: exit_code=-1073741205
+[0915/045305.689:WARNING:gpu_process_host.cc(1308)] The GPU process has crashed 3 time(s)
+[0915/045305.689:FATAL:gpu_data_manager_impl_private.cc(414)] GPU process isn't usable. Goodbye.
