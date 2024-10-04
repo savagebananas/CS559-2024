@@ -120,7 +120,6 @@ function setup() {
 
     // Center for stars to rotate on
     context.translate(200 + -3*x, x - 100); // Bottom Center -> canvas
-    linkage("blue");
     context.save();
     
     context.rotate(theta * 2/18);
