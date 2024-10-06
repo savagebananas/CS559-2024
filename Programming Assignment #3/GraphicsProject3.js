@@ -2,7 +2,7 @@ function setup() {
   var canvas = document.getElementById('myCanvas');
 
   var slider1 = document.getElementById('slider1');
-  slider1.value = 125;
+  slider1.value = 0;
   var slider2 = document.getElementById('slider2');
   slider2.value = 0;
 
@@ -32,8 +32,9 @@ function setup() {
       context.fillRect(0, 0, canvas.width, canvas.height);
     }
 
-    function star(size, distance) {
-      context.fillStyle = "lightblue";
+    function star(size, distance, color) {
+      context.fillStyle = "white";
+      context.fillStyle = color;
       context.beginPath();
       moveToTx(distance - size/2, -size/2);
       lineToTx(distance + size/2, -size/2);
@@ -96,62 +97,93 @@ function setup() {
 
     // Background
     const grad=context.createLinearGradient(0,0, 0,400);
-    grad.addColorStop(0, "#2a2859");
-    grad.addColorStop(1, "#42438d");
+    grad.addColorStop(0.4, "#06283b");
+    grad.addColorStop(0.6, "#063047");
+    grad.addColorStop(0.85, "#0B486B");
+    grad.addColorStop(1, "#0f5780");
     backgroundColor(grad);
 
-    context.save(); // canvas -> canvas
+    stack.unshift(mat3.clone(stack[0])); // canvas, canvas
 
-    // Center for stars to rotate on
-    context.translate(200 + -3*x, x - 100); // Bottom Center -> canvas
-    context.save();
-    
-    context.rotate(theta * 2/18);
+    var Tstarpivot_to_canvas = mat3.create();
+    mat3.fromTranslation(Tstarpivot_to_canvas,[250 + -3*x, x + 400]);
+    //mat3.fromTranslation(Tstarpivot_to_canvas,[400, 200]);
+    mat3.multiply(stack[0],stack[0],Tstarpivot_to_canvas);
+    stack.unshift(mat3.clone(stack[0])); // Top: starpivot, starpivot, canvas
+
+    var Tstar1 = mat3.create();
+    mat3.rotate(Tstar1, Tstar1,theta * 1/15);
+    mat3.multiply(stack[0],stack[0], Tstar1); // Top: star1, starpivot, canvas
     star(10, -600);
     star(10, 600);
+    stack.shift(); // Top: starpivot, canvas
+    stack.unshift(mat3.clone(stack[0])); // Top: starpivot, starpivot, canvas
 
-    context.rotate(theta * 1/15);
+    var Tstar2 = mat3.create();
+    mat3.rotate(Tstar2, Tstar2, theta * 2/15);
+    mat3.multiply(stack[0],stack[0], Tstar2);
     star(10, -550);
     star(10, 550);
+    stack.shift(); 
+    stack.unshift(mat3.clone(stack[0]));
 
-    context.rotate(theta * 2/15);
+    var Tstar3 = mat3.create();
+    mat3.rotate(Tstar3, Tstar3,theta * 3/15);
+    mat3.multiply(stack[0],stack[0], Tstar3);
     star(10, -500);
     star(10, 500);
+    stack.shift();
+    stack.unshift(mat3.clone(stack[0]));
 
-    context.rotate(theta * 1/10);
+    
+    var Tstar4 = mat3.create();
+    mat3.rotate(Tstar4, Tstar4,theta * 4/15);
+    mat3.multiply(stack[0],stack[0], Tstar4);
     star(10, -450);
     star(10, 450);
+    stack.shift();
+    stack.unshift(mat3.clone(stack[0]));
 
-    context.rotate(theta * 2/10);
+    var Tstar5 = mat3.create();
+    mat3.rotate(Tstar5, Tstar5,theta * 5/15);
+    mat3.multiply(stack[0],stack[0], Tstar5);
     star(10, -400);
     star(10, 400);
+    stack.shift();
+    stack.unshift(mat3.clone(stack[0]));
     
-    context.rotate(theta * 3/10);
+    var Tstar6 = mat3.create();
+    mat3.rotate(Tstar6, Tstar6,theta * 6/15);
+    mat3.multiply(stack[0],stack[0], Tstar6);
     star(10, -350);
     star(10, 350);
+    stack.shift();
+    stack.unshift(mat3.clone(stack[0]));
 
-    context.rotate(theta * 4/10);
+    var Tstar7 = mat3.create();
+    mat3.rotate(Tstar7, Tstar7,theta * 7/15);
+    mat3.multiply(stack[0],stack[0], Tstar7);
     star(10, -300);
     star(10, 300);
+    stack.shift();
+    stack.unshift(mat3.clone(stack[0]));
 
-    context.rotate(theta * 5/10);
+    var Tstar8 = mat3.create();
+    mat3.rotate(Tstar8, Tstar8,theta * 8/15);
+    mat3.multiply(stack[0],stack[0], Tstar8);
     star(10, -250);
     star(10, 250);
+    stack.shift();
+    stack.unshift(mat3.clone(stack[0]));
 
-    context.rotate(theta * 6/10);
+    var Tstar9 = mat3.create();
+    mat3.rotate(Tstar9, Tstar9,theta * 9/15);
+    mat3.multiply(stack[0],stack[0], Tstar9);
     star(10, -200);
     star(10, 200);
+    stack.shift();
 
-    context.rotate(theta * 7/10);
-    star(10, -150);
-    star(10, 150);
-
-    context.rotate(theta * 8/10);
-    star(10, -100);
-    star(10, 100);
-    context.restore(); 
-
-    context.restore(); // canvas -> canvas
+    stack.shift(); 
     scenery();
   }
 
