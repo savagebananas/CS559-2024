@@ -3,15 +3,16 @@ function setup() {
 
   var slider1 = document.getElementById('slider1');
   slider1.value = 0;
-  var slider2 = document.getElementById('slider2');
-  slider2.value = 0;
+
+  var showCurve = document.getElementById('showCurve');
+  showCurve.checked = false;
 
   function draw() {
     var context = canvas.getContext('2d');
     canvas.width = canvas.width;
 
     var tSliderValue = slider1.value * 0.01;
-    var x = -slider2.value;
+    var curveOn = showCurve.checked;
 
     function moveToTx(loc,Tx)
     {var res=vec2.create(); vec2.transformMat3(res,loc,Tx); context.moveTo(res[0],res[1]);}
@@ -131,9 +132,11 @@ function setup() {
     mat3.fromTranslation(TCenterTrackToCanvas,[50,420]);
     mat3.scale(TCenterTrackToCanvas,TCenterTrackToCanvas,[200,-200]); // Flip the Y-axis
 
-    //drawTrajectory(0.0, 1.0, 100, C0, TCenterTrackToCanvas, "black");
-    //drawTrajectory(0.0, 1.0, 100, C1, TCenterTrackToCanvas, "white");
-    //drawTrajectory(0.0, 1.0, 100, C2, TCenterTrackToCanvas, "cyan");
+    if (curveOn){
+      drawTrajectory(0.0, 1.0, 100, C0, TCenterTrackToCanvas, "black");
+      drawTrajectory(0.0, 1.0, 100, C1, TCenterTrackToCanvas, "white");
+      drawTrajectory(0.0, 1.0, 100, C2, TCenterTrackToCanvas, "cyan");
+    }
 
     var TCar1ToCenter = mat3.create();
     mat3.fromTranslation(TCar1ToCenter, Ccomp(tSliderValue));
@@ -162,7 +165,7 @@ function setup() {
   }
 
   slider1.addEventListener("input", draw);
-  slider2.addEventListener("input", draw);
+  showCurve.addEventListener("input", draw);
   draw();
 
   requestAnimationFrame(draw);
