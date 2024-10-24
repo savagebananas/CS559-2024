@@ -133,9 +133,9 @@ function setup() {
     mat3.scale(TCenterTrackToCanvas,TCenterTrackToCanvas,[200,-200]); // Flip the Y-axis
 
     if (curveOn){
-      drawTrajectory(0.0, 1.0, 100, C0, TCenterTrackToCanvas, "black");
-      drawTrajectory(0.0, 1.0, 100, C1, TCenterTrackToCanvas, "white");
-      drawTrajectory(0.0, 1.0, 100, C2, TCenterTrackToCanvas, "cyan");
+      drawTrajectory(0.0, 1.0, 100, C0, TCenterTrackToCanvas, "red");
+      drawTrajectory(0.0, 1.0, 100, C1, TCenterTrackToCanvas, "green");
+      drawTrajectory(0.0, 1.0, 100, C2, TCenterTrackToCanvas, "blue");
     }
 
     var TCar1ToCenter = mat3.create();
