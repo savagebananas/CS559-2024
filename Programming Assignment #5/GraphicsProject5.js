@@ -10,6 +10,9 @@ function setup() {
   var showCurve = document.getElementById('showCurve');
   showCurve.checked = false;
 
+  var showAxis = document.getElementById('showAxis');
+  showCurve.checked = false;
+
   function draw() {
     var context = canvas.getContext('2d');
     canvas.width = canvas.width;
@@ -17,6 +20,7 @@ function setup() {
     var tSliderValue = slider1.value * 0.01;
     var viewAngle = slider2.value * -0.01 * Math.PI;
     var curveOn = showCurve.checked;
+    var axisOn = showAxis.checked;
 
     function moveToTx(loc,Tx)
     {var res=vec3.create(); vec3.transformMat4(res,loc,Tx); context.moveTo(res[0],res[1]);}
@@ -130,7 +134,9 @@ function setup() {
       var Tx = mat4.clone(TxU);
       mat4.scale(Tx,Tx,[scale,scale,scale]);
       var a = mat4.create();
-      mat4.fromTranslation(a, [2,0,0]);
+      mat4.fromTranslation(a, [2.125,0,0]);
+      mat4.multiply(Tx, Tx, a);
+      mat4.fromTranslation(a, Ccomp(tSliderValue));
       mat4.multiply(Tx, Tx, a);
       mat4.fromYRotation(a, 1.25 * Math.PI);
       mat4.multiply(Tx, Tx, a);
@@ -144,7 +150,6 @@ function setup() {
       mat4.multiply(stack[0], stack[0], white);
       drawNineSquares("white", stack[0]);
       stack.shift();
-
 
       stack.unshift(mat4.clone(stack[0]));
       var red = mat4.create();
@@ -169,13 +174,10 @@ function setup() {
       mat4.fromYRotation(yellow2, -.5 * Math.PI);
       mat4.multiply(stack[0], stack[0], yellow2);
 
-   
-
       drawNineSquares("blue", Tx);
 
       drawNineSquares("yellow", stack[0]);
       stack.shift();
-
 
       stack.unshift(mat4.clone(stack[0]));
       var white = mat4.create();
@@ -188,6 +190,42 @@ function setup() {
       stack.shift();
     }
 
+    function drawFloorWalls(wallColor, floorColor, TxU, scale){
+      var Tx = mat4.clone(TxU);
+      mat4.scale(Tx,Tx,[scale,scale,scale]);
+
+      var translation = mat4.create();
+      mat4.fromTranslation(translation, [0, 0, -2]);
+      mat4.multiply(Tx, Tx, translation);
+
+      var rotation = mat4.create();
+      mat4.fromYRotation(rotation, -.25 * Math.PI);
+      mat4.multiply(Tx, Tx, rotation);
+
+      var floor = mat4.create();
+      mat4.fromTranslation(floor, [0, 0, 0]);
+      mat4.multiply(Tx, Tx, floor);
+      var floor2 = mat4.create();
+      mat4.fromXRotation(floor2, .5 * Math.PI);
+      mat4.multiply(Tx, Tx, floor2);
+
+      drawNineSquares(floorColor, Tx);
+    }
+
+    function drawHermite(color, TxU, scale){
+      var Tx = mat4.clone(TxU);
+      mat4.scale(Tx,Tx,[scale,scale,scale]);
+      var a = mat4.create();
+      //mat4.fromTranslation(a, [0,3,0]);
+      mat4.multiply(Tx, Tx, a);
+
+      drawTrajectory(0.0, 1.0, 100, C0, Tx, "white");
+      drawTrajectory(0.0, 1.0, 100, C1, Tx, "red");
+      drawTrajectory(0.0, 1.0, 100, C2, Tx, "black");
+
+      draw3DAxes("black", Tx, 1);
+    }
+
 
     function backgroundColor(color){
       context.fillStyle = color;
@@ -198,10 +236,10 @@ function setup() {
       context.fillStyle = "white";
       context.fillStyle = color;
       context.beginPath();
-      moveToTx([distance - size/2, -size/2], Tx);
-      lineToTx([distance + size/2, -size/2], Tx);
-      lineToTx([distance + size/2, size/2], Tx);
-      lineToTx([distance - size/2, size/2], Tx);
+      moveToTx([distance - size/2, -size/2, 0], Tx);
+      lineToTx([distance + size/2, -size/2, 0], Tx);
+      lineToTx([distance + size/2, size/2, 0], Tx);
+      lineToTx([distance - size/2, size/2, 0], Tx);
       context.fill();
     }
 
@@ -225,14 +263,14 @@ function setup() {
       return result;
     }
 
-    var p0=[-0.5, 0.5, 0];
-    var d0=[1, 1/3, 0];
-    var p1=[0.5, 1, 0];
-    var d1=[1, 1, 0];
-    var p2=[3, 1.5, 0];
-    var d2=[1, 2, 0];
-    var p3=[5, 1, 0];
-    var d3=[-1, 0, 0];
+    var p0=[0, 0, 0];
+    var d0=[5, 2, 1];
+    var p1=[0, 1, -.5];
+    var d1=[3, 2, 1];
+    var p2=[0, 2, 0];
+    var d2=[3, 2, 1];
+    var p3=[0, 3, .5];
+    var d3=[2, 3, 5];
   
     var P0 = [p0,d0,p1,d1]; // First two points and tangents
     var P1 = [p1,d1,p2,d2]; // Last two points and tangents
@@ -274,7 +312,7 @@ function setup() {
     var distance = 120.0;
     var eye = vec3.create();
     eye[0] = distance * Math.sin(viewAngle);
-    eye[1] = 75;
+    eye[1] = 65;
     eye[2] = distance * Math.cos(viewAngle);  
     return [eye[0], eye[1], eye[2]];
   }
@@ -292,7 +330,7 @@ function setup() {
     var Tviewport = mat4.create();
     // Move the center of the "lookAt" transform (where the camera points) 
     // to the canvas coordinates (400,300)
-    mat4.fromTranslation(Tviewport,[400,300,0]);  
+    mat4.fromTranslation(Tviewport,[400,275,0]);  
     // Flip the Y-axis, scale everything by 100x
     mat4.scale(Tviewport,Tviewport,[100,-100,1]); 
     
@@ -310,14 +348,24 @@ function setup() {
     
     backgroundColor("#f3de8a");
     
-    drawCube("blue", tVP_PROJ_VIEW_Camera, 75.0);
-    draw3DAxes("grey", tVP_PROJ_VIEW_Camera,100.0);
+    drawFloorWalls("black", "#ddb517", tVP_PROJ_VIEW_Camera, 100);
+
+    // lots of hierarchy
+    drawCube("blue", tVP_PROJ_VIEW_Camera, 50.0);
+
+    if(axisOn) draw3DAxes("magenta", tVP_PROJ_VIEW_Camera,100.0);
+
+    if (curveOn) drawHermite("black", tVP_PROJ_VIEW_Camera, 50);
+
+    console.log(showCurve);
 
   }
   
   slider1.addEventListener("input", draw);
   slider2.addEventListener("input", draw);
   showCurve.addEventListener("input", draw);
+  showAxis.addEventListener("input", draw);
+
   draw();
 
   requestAnimationFrame(draw);
