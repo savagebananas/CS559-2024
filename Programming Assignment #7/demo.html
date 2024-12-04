@@ -45,6 +45,12 @@
       const float specularE = 32.0;
       const vec3  lightCol  = vec3(1.0,1.0,1.0);
       const vec3  objectCol = vec3(1.0,0.6,0.0); // yellow-ish orange
+
+      float Posterize(float val, float steps) 
+      { 
+        return floor(val * steps)  / steps; 
+      }
+
       vec2 blinnPhongDir(vec3 lightDir, vec3 n, float lightInt, float Ka,
         float Kd, float Ks, float shininess) {
         vec3 s = normalize(lightDir);
@@ -60,7 +66,12 @@
         vec3 n = normalize(uMVn * fNormal);
         vec3 ColorS  = blinnPhongDir(lightV,n,0.0   ,0.0,     0.0,     specularC,specularE).y*lightCol;
         vec3 ColorAD = blinnPhongDir(lightV,n,lightI,ambientC,diffuseC,0.0,      1.0      ).x*texColor;
-        gl_FragColor = vec4(ColorAD+ColorS,1.0);
+
+        vec3 finalColor = ColorS + ColorAD ;
+        float step = 5.0;
+        vec3 posterized = 
+        vec3(Posterize(finalColor.r, step), Posterize(finalColor.g, step), Posterize(finalColor.b, step));
+        gl_FragColor =  vec4(posterized, 1.0) ;
       }
     </script>
 
