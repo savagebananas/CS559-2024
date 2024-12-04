@@ -10,6 +10,9 @@ function start() {
     var slider2 = document.getElementById('slider2');
     slider2.value = 0;
 
+    const d = new Date();
+    let time = d.getTime();
+
     // Read shader source
     var vertexSource = document.getElementById("vertexShader").text;
     var fragmentSource = document.getElementById("fragmentShader").text;
@@ -61,9 +64,7 @@ function start() {
     gl.uniform1i(shaderProgram.texSampler1, 0);
     shaderProgram.texSampler2 = gl.getUniformLocation(shaderProgram, "texSampler2");
     gl.uniform1i(shaderProgram.texSampler2, 1);
-
-    // Data ...
-    
+  
     // vertex positions
     var vertexPos = new Float32Array(
         [  1, 1, 1,  -1, 1, 1,  -1,-1, 1,   1,-1, 1,
@@ -71,7 +72,8 @@ function start() {
            1, 1, 1,   1, 1,-1,  -1, 1,-1,  -1, 1, 1,
           -1, 1, 1,  -1, 1,-1,  -1,-1,-1,  -1,-1, 1,
           -1,-1,-1,   1,-1,-1,   1,-1, 1,  -1,-1, 1,
-           1,-1,-1,  -1,-1,-1,  -1, 1,-1,   1, 1,-1 ]);
+           1,-1,-1,  -1,-1,-1,  -1, 1,-1,   1, 1,-1 
+          ]);
 
     // vertex normals
     var vertexNormals = new Float32Array(
@@ -194,13 +196,17 @@ function start() {
         var angle2 = slider2.value*0.01*Math.PI;
     
         // Circle around the y-axis
-        var eye = [400*Math.sin(angle1),150.0,400.0*Math.cos(angle1)];
+        var eye = [600*Math.sin(angle1),150.0,600.0*Math.cos(angle1)];
         var target = [0,0,0];
         var up = [0,1,0];
     
         var tModel = mat4.create();
         mat4.fromScaling(tModel,[100,100,100]);
         mat4.rotate(tModel,tModel,angle2,[1,1,1]);
+        var tTranslate = mat4.create();
+        mat4.fromTranslation(tTranslate, [0,1,0]);
+        mat4.multiply(tModel, tModel, tTranslate);
+        
       
         var tCamera = mat4.create();
         mat4.lookAt(tCamera, eye, target, up);      
