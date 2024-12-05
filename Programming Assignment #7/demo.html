@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WebGL cube drawn with indexed vertex list</title>
+    <title>WebGL Sheep Drawn with Index Vertex List</title>
   </head>
 
   <body>
@@ -18,7 +18,7 @@
       void main(void) {
         gl_Position = uMVP * vec4(vPosition, 1.0);
         fPosition = (uMV * vec4(vPosition, 1.0)).xyz; // In camera coordinates
-        fColor = vColor;
+        fColor = vColor * 1.3;
         fNormal = vNormal;                            // In local coordinates
      }
     </script>
@@ -31,7 +31,7 @@
       uniform mat4 uMV;
       uniform mat3 uMVn;
 
-      const vec3  lightV    = vec3(0.3,-0.4,1.0);
+      const vec3  lightV    = vec3(0.6,0.0,1.0);
       const float lightI    = 1.0;               // only for diffuse component
       const float ambientC  = 0.15;
       const float diffuseC  = 0.5;
