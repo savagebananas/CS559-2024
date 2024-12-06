@@ -155,6 +155,8 @@ function start() {
     gl.vertexAttribPointer(shaderProgram.ColorAttribute, 3, gl.FLOAT, false, 0, 0);
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
 
+    // Bind Texture
+
     gl.drawElements(gl.TRIANGLES, indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
   }
 
