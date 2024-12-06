@@ -39,6 +39,7 @@ function start() {
   }
   gl.useProgram(shaderProgram);
 
+  // HELP, what does this do?
   // Shader attribute and uniform locations
   shaderProgram.PositionAttribute = gl.getAttribLocation(shaderProgram, "vPosition");
   shaderProgram.NormalAttribute = gl.getAttribLocation(shaderProgram, "vNormal");
@@ -48,6 +49,7 @@ function start() {
   gl.enableVertexAttribArray(shaderProgram.NormalAttribute);
   gl.enableVertexAttribArray(shaderProgram.ColorAttribute);
 
+  // What is this?
   shaderProgram.MVmatrix = gl.getUniformLocation(shaderProgram, "uMV");
   shaderProgram.MVNormalmatrix = gl.getUniformLocation(shaderProgram, "uMVn");
   shaderProgram.MVPmatrix = gl.getUniformLocation(shaderProgram, "uMVP");
@@ -122,7 +124,7 @@ function start() {
   var bodyIndexBuffer = createBuffer(bodyTriangles, true);
   bodyIndexBuffer.numItems = bodyTriangles.length;
 
-    // Utility function to create and bind buffers
+    // Helper to create and bind buffers
     function createBuffer(data, isElementArray = false) {
       var buffer = gl.createBuffer();
       var target = isElementArray ? gl.ELEMENT_ARRAY_BUFFER : gl.ARRAY_BUFFER;
@@ -131,6 +133,7 @@ function start() {
       buffer.itemSize = 3;
       return buffer;
     }
+
   // Draw function
   function drawPart(posBuffer, normalBuffer, colorBuffer, indexBuffer, modelMatrix, viewMatrix, projectionMatrix) {
     var mvMatrix = mat4.create();
@@ -153,10 +156,6 @@ function start() {
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
 
     gl.drawElements(gl.TRIANGLES, indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
-  }
-
-  function backgroundColor(color){
-
   }
 
   function draw() {
