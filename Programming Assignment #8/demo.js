@@ -13,7 +13,9 @@ function start() {
   var vertexSource = document.getElementById("vertexShader").text;
   var fragmentSource = document.getElementById("fragmentShader").text;
 
-  // Compile shaders
+  var shaderProgram = shaderSetup(vertexSource, fragmentSource);
+
+  // Helper method to compile shaders
   function compileShader(type, source) {
     var shader = gl.createShader(type);
     gl.shaderSource(shader, source);
@@ -25,42 +27,50 @@ function start() {
     return shader;
   }
 
-  var vertexShader = compileShader(gl.VERTEX_SHADER, vertexSource);
-  var fragmentShader = compileShader(gl.FRAGMENT_SHADER, fragmentSource);
-  if (!vertexShader || !fragmentShader) return;
-
-  var shaderProgram = gl.createProgram();
-  gl.attachShader(shaderProgram, vertexShader);
-  gl.attachShader(shaderProgram, fragmentShader);
-  gl.linkProgram(shaderProgram);
-  if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
-    console.error("Could not initialize shaders");
-    return;
+  function shaderSetup(vSource, fSource){
+    var vertexShader = compileShader(gl.VERTEX_SHADER, vSource);
+    var fragmentShader = compileShader(gl.FRAGMENT_SHADER, fSource);
+    if (!vertexShader || !fragmentShader) return;
+  
+    var shaderProgram = gl.createProgram();
+    gl.attachShader(shaderProgram, vertexShader);
+    gl.attachShader(shaderProgram, fragmentShader);
+    gl.linkProgram(shaderProgram);
+    if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
+      console.error("Could not initialize shaders");
+      return;
+    }
+    gl.useProgram(shaderProgram);
+    return shaderProgram;
   }
-  gl.useProgram(shaderProgram);
 
   // Shader attribute and uniform locations
   shaderProgram.PositionAttribute = gl.getAttribLocation(shaderProgram, "vPosition");
   shaderProgram.NormalAttribute = gl.getAttribLocation(shaderProgram, "vNormal");
   shaderProgram.ColorAttribute = gl.getAttribLocation(shaderProgram, "vColor");
+  shaderProgram.texcoordAttribute = gl.getAttribLocation(shaderProgram, "vTexCoord");
 
   gl.enableVertexAttribArray(shaderProgram.PositionAttribute);
   gl.enableVertexAttribArray(shaderProgram.NormalAttribute);
   gl.enableVertexAttribArray(shaderProgram.ColorAttribute);
+  gl.enableVertexAttribArray(shaderProgram.texcoordAttribute);
 
   shaderProgram.MVmatrix = gl.getUniformLocation(shaderProgram, "uMV");
   shaderProgram.MVNormalmatrix = gl.getUniformLocation(shaderProgram, "uMVn");
   shaderProgram.MVPmatrix = gl.getUniformLocation(shaderProgram, "uMVP");
 
-  // Cat part arrays
-  var bodyVertices = new Float32Array([
-    0.5,  0.3,  0.5,  -0.5,  0.3,  0.5,  -0.5, -0.3,  0.5,  0.5, -0.3,  0.5, // Front
-    0.5,  0.3, -0.5,  0.5, -0.3, -0.5,  -0.5, -0.3, -0.5,  -0.5,  0.3, -0.5, // Back
-    0.5,  0.3,  0.5,  0.5,  0.3, -0.5,  -0.5,  0.3, -0.5,  -0.5,  0.3,  0.5, // Top
-    0.5, -0.3,  0.5,  0.5, -0.3, -0.5,  -0.5, -0.3, -0.5,  -0.5, -0.3,  0.5, // Bottom
-    0.5,  0.3,  0.5,  0.5, -0.3,  0.5,  0.5, -0.3, -0.5,  0.5,  0.3, -0.5, // Right
-   -0.5,  0.3,  0.5,  -0.5, -0.3,  0.5,  -0.5, -0.3, -0.5,  -0.5,  0.3, -0.5  // Left
-  ]);
+  // Attach samplers to texture units
+  shaderProgram.texSampler1 = gl.getUniformLocation(shaderProgram, "texSampler1");
+  gl.uniform1i(shaderProgram.texSampler1, 0);
+  
+
+  var bodyVerticesPos = new Float32Array([
+      1, 1, 1,  -1, 1, 1,  -1,-1, 1,   1,-1, 1,
+      1, 1, 1,   1,-1, 1,   1,-1,-1,   1, 1,-1,
+      1, 1, 1,   1, 1,-1,  -1, 1,-1,  -1, 1, 1,
+     -1, 1, 1,  -1, 1,-1,  -1,-1,-1,  -1,-1, 1,
+     -1,-1,-1,   1,-1,-1,   1,-1, 1,  -1,-1, 1,
+      1,-1,-1,  -1,-1,-1,  -1, 1,-1,   1, 1,-1 ]);
 
   var bodyNormals = new Float32Array([
     0,  0,  1,   0,  0,  1,   0,  0,  1,   0,  0,  1, // Front
@@ -72,13 +82,13 @@ function start() {
   ]);
 
     // vertex texture coordinates
-    var vertexTextureCoords = new Float32Array(
-      [0, 0, 1, 0, 1, 1, 0, 1,
-        1, 0, 1, 1, 0, 1, 0, 0,
-        0, 1, 0, 0, 1, 0, 1, 1,
-        0, 0, 1, 0, 1, 1, 0, 1,
-        1, 1, 0, 1, 0, 0, 1, 0,
-        1, 1, 0, 1, 0, 0, 1, 0]);
+  var bodyVertexTextureCoords = new Float32Array(
+    [  0, 0,   1, 0,   1, 1,   0, 1,
+        1, 0,   1, 1,   0, 1,   0, 0,
+        0, 1,   0, 0,   1, 0,   1, 1,
+        0, 0,   1, 0,   1, 1,   0, 1,
+        1, 1,   0, 1,   0, 0,   1, 0,
+        1, 1,   0, 1,   0, 0,   1, 0 ]);
 
   var bodyColors = new Float32Array([
     0.6, 0.4, 0.2,  1.0, 0.6, 0.2,  1.0, 1.0, 0.2,  1.0, 0.6, 0.2, // Front face - Yellow
@@ -90,40 +100,101 @@ function start() {
   ]);
 
   var bodyTriangles = new Uint16Array([
-    0, 1, 2,  0, 2, 3,   // Front face
-    4, 5, 6,  4, 6, 7,   // Back face
-    8, 9,10,  8,10,11,   // Top face
-   12,13,14, 12,14,15,   // Bottom face
-   16,17,18, 16,18,19,   // Right face
-   20,21,22, 20,22,23    // Left face
-  ]);
+    0, 1, 2,   0, 2, 3,    // front
+    4, 5, 6,   4, 6, 7,    // right
+    8, 9,10,   8,10,11,    // top
+    12,13,14,  12,14,15,    // left
+    16,17,18,  16,18,19,    // bottom
+    20,21,22,  20,22,23 ]); // back
 
 
-  // Add similar arrays for the head, legs, and tail (as shared earlier).
+  // Create sheep buffers
+  var bodyPosBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, bodyPosBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, bodyVerticesPos, gl.STATIC_DRAW);
+  bodyPosBuffer.itemSize = 3;
+  bodyPosBuffer.numItems = 24;
+  
+  // a buffer for normals
+  var bodyNormalBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, bodyNormalBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, bodyNormals, gl.STATIC_DRAW);
+  bodyNormalBuffer.itemSize = 3;
+  bodyNormalBuffer.numItems = 24;
+  
+  // a buffer for colors
+  var bodyColorBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, bodyColorBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, bodyColors, gl.STATIC_DRAW);
+  bodyColorBuffer.itemSize = 3;
+  bodyColorBuffer.numItems = 24;
 
-  // Create buffers
-  var bodyPosBuffer = createBuffer(bodyVertices);
-  bodyPosBuffer.numItems = bodyVertices.length;
+  // a buffer for textures
+  var bodyTextureBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, bodyTextureBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, bodyVertexTextureCoords, gl.STATIC_DRAW);
+  bodyTextureBuffer.itemSize = 2;
+  bodyTextureBuffer.numItems = 24;
 
-  var bodyNormalBuffer = createBuffer(bodyNormals);
-  bodyNormalBuffer.numItems = bodyNormals.length;
-  var bodyColorBuffer = createBuffer(bodyColors);
-  bodyColorBuffer.numItems = bodyColors.length;
-  var bodyIndexBuffer = createBuffer(bodyTriangles, true);
-  bodyIndexBuffer.numItems = bodyTriangles.length;
+  // a buffer for indices
+  var bodyIndexBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, bodyIndexBuffer);
+  gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, bodyTriangles, gl.STATIC_DRAW);    
 
-    // Helper to create and bind buffers
-    function createBuffer(data, isElementArray = false) {
-      var buffer = gl.createBuffer();
-      var target = isElementArray ? gl.ELEMENT_ARRAY_BUFFER : gl.ARRAY_BUFFER;
-      gl.bindBuffer(target, buffer);
-      gl.bufferData(target, data, gl.STATIC_DRAW);
-      buffer.itemSize = 3;
-      return buffer;
-    }
+  // Helper to create and bind buffers
+  function createBuffer(data, isIndexBuffer = false, isTextureBuffer = false) {
+    var buffer = gl.createBuffer();
+    var target = isIndexBuffer ? gl.ELEMENT_ARRAY_BUFFER : gl.ARRAY_BUFFER;
+    gl.bindBuffer(target, buffer);
+    gl.bufferData(target, data, gl.STATIC_DRAW);
+    if (!isIndexBuffer) buffer.itemSize = isTextureBuffer ? 2 : 3;
+    return buffer;
+  }
 
-  // Draw function
-  function drawPart(posBuffer, normalBuffer, colorBuffer, indexBuffer, modelMatrix, viewMatrix, projectionMatrix) {
+  var texture1 = gl.createTexture();
+  gl.activeTexture(gl.TEXTURE0);
+  gl.bindTexture(gl.TEXTURE_2D, texture1);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+  var image1 = new Image();
+
+  // Helper to setup textures
+  function setupTexture(){
+    var texture = gl.createTexture();
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, texture);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+    return texture;
+  }
+
+  // Run before draw function
+  function loadTexture(image, texture) {
+    gl.bindTexture(gl.TEXTURE_2D, texture);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
+
+    // Option 1 : Use mipmap, select interpolation mode
+    gl.generateMipmap(gl.TEXTURE_2D);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
+
+    // Option 2: At least use linear filters
+    // gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    // gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+
+    // Optional ... if your shader & texture coordinates go outside the [0,1] range
+    // gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    // gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  }
+
+  function initTextureThenDraw()
+  {
+    image1.onload = function() { loadTexture(image1,texture1); };
+    image1.crossOrigin = "anonymous";
+    image1.src = "https://farm6.staticflickr.com/5564/30725680942_e3bfe50e5e_b.jpg";
+
+    window.setTimeout(draw,200);
+  }
+
+  // Helper to draw one object
+  function drawPart(posBuffer, normalBuffer, colorBuffer, indexBuffer, textureBuffer, modelMatrix, viewMatrix, projectionMatrix, shaderPrgm) {
     var mvMatrix = mat4.create();
     mat4.multiply(mvMatrix, viewMatrix, modelMatrix);
     var mvpMatrix = mat4.create();
@@ -131,25 +202,34 @@ function start() {
     var normalMatrix = mat3.create();
     mat3.normalFromMat4(normalMatrix, mvMatrix);
 
-    gl.uniformMatrix4fv(shaderProgram.MVmatrix, false, mvMatrix);
-    gl.uniformMatrix4fv(shaderProgram.MVPmatrix, false, mvpMatrix);
-    gl.uniformMatrix3fv(shaderProgram.MVNormalmatrix, false, normalMatrix);
+    gl.uniformMatrix4fv(shaderPrgm.MVmatrix, false, mvMatrix);
+    gl.uniformMatrix4fv(shaderPrgm.MVPmatrix, false, mvpMatrix);
+    gl.uniformMatrix3fv(shaderPrgm.MVNormalmatrix, false, normalMatrix);
 
     gl.bindBuffer(gl.ARRAY_BUFFER, posBuffer);
-    gl.vertexAttribPointer(shaderProgram.PositionAttribute, 3, gl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(shaderPrgm.PositionAttribute, 3, gl.FLOAT, false, 0, 0);
     gl.bindBuffer(gl.ARRAY_BUFFER, normalBuffer);
-    gl.vertexAttribPointer(shaderProgram.NormalAttribute, 3, gl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(shaderPrgm.NormalAttribute, 3, gl.FLOAT, false, 0, 0);
     gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
-    gl.vertexAttribPointer(shaderProgram.ColorAttribute, 3, gl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(shaderPrgm.ColorAttribute, 3, gl.FLOAT, false, 0, 0);
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
 
     // Bind Texture
+    if (textureBuffer != null)
+    {
+      gl.bindBuffer(gl.ARRAY_BUFFER, textureBuffer);
+      gl.vertexAttribPointer(shaderProgram.texcoordAttribute, textureBuffer.itemSize,
+        gl.FLOAT, false, 0, 0);
+
+      gl.activeTexture(gl.TEXTURE0);
+      gl.bindTexture(gl.TEXTURE_2D, texture1);
+    }
+
 
     gl.drawElements(gl.TRIANGLES, indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
   }
 
   function draw() {
-
     // Setup camera and projection
     var angle1 = slider1.value * 0.01 * Math.PI;
     var angle2 = slider2.value;
@@ -173,12 +253,13 @@ function start() {
     var modelBodyMatrix = mat4.create();
     //mat4.fromRotation(modelBodyMatrix, Math.sin(angle2) * 0.1, [1, 1, 1]);
     //mat4.multiply(modelBodyMatrix, modelBodyMatrix, baseMatrix);
-    mat4.fromScaling(modelBodyMatrix, [1, 1, 0.8]);
+    mat4.fromScaling(modelBodyMatrix, [1, 1, 1]);
     var t1 = mat4.create();
     mat4.fromTranslation(t1, [0, 0.05 * Math.sin(angle2 * 0.5 + 1), 0]);
     mat4.multiply(modelBodyMatrix, modelBodyMatrix, t1);
-    drawPart(bodyPosBuffer, bodyNormalBuffer, bodyColorBuffer, bodyIndexBuffer, modelBodyMatrix, viewMatrix, projectionMatrix);
+    drawPart(bodyPosBuffer, bodyNormalBuffer, bodyColorBuffer, bodyIndexBuffer, bodyTextureBuffer, modelBodyMatrix, viewMatrix, projectionMatrix, shaderProgram);
 
+    /*
     // Draw head
     var modelHeadMatrix = mat4.create();
     mat4.fromScaling(modelHeadMatrix,[0.4,0.6,0.4]);
@@ -186,7 +267,7 @@ function start() {
     var translation = mat4.create();
     mat4.fromTranslation(translation, [1.25, 0.5 + 0.1 * Math.sin(angle2 * 0.5), 0]);
     mat4.multiply(modelHeadMatrix, modelHeadMatrix, translation);
-    drawPart(bodyPosBuffer, bodyNormalBuffer, bodyColorBuffer, bodyIndexBuffer, modelHeadMatrix, viewMatrix, projectionMatrix);
+    drawPart(bodyPosBuffer, bodyNormalBuffer, bodyColorBuffer, bodyIndexBuffer, null, modelHeadMatrix, viewMatrix, projectionMatrix, shaderProgram);
   
     // Draw face
     var modelFaceMatrix = mat4.create();
@@ -195,7 +276,7 @@ function start() {
     var t0 = mat4.create();
     mat4.fromTranslation(t0, [2, 0.75 + 0.1 * Math.sin(angle2 * 0.5), 0]);
     mat4.multiply(modelFaceMatrix, modelFaceMatrix, t0);
-    drawPart(bodyPosBuffer, bodyNormalBuffer, bodyColorBuffer, bodyIndexBuffer, modelFaceMatrix, viewMatrix, projectionMatrix);
+    drawPart(bodyPosBuffer, bodyNormalBuffer, bodyColorBuffer, bodyIndexBuffer, null, modelFaceMatrix, viewMatrix, projectionMatrix, shaderProgram);
 
     // Draw Legs
     var modelLeg1Matrix = mat4.create();
@@ -204,7 +285,7 @@ function start() {
     var t2 = mat4.create();
     mat4.fromTranslation(t2, [1.25, -0.5, 1]);
     mat4.multiply(modelLeg1Matrix, modelLeg1Matrix, t2);
-    drawPart(bodyPosBuffer, bodyNormalBuffer, bodyColorBuffer, bodyIndexBuffer, modelLeg1Matrix, viewMatrix, projectionMatrix);
+    drawPart(bodyPosBuffer, bodyNormalBuffer, bodyColorBuffer, bodyIndexBuffer, null, modelLeg1Matrix, viewMatrix, projectionMatrix, shaderProgram);
     
     // Draw Legs
     var modelLeg2Matrix = mat4.create();
@@ -213,7 +294,7 @@ function start() {
     var t3 = mat4.create();
     mat4.fromTranslation(t3, [1.25, -0.5, -1]);
     mat4.multiply(modelLeg2Matrix, modelLeg2Matrix, t3);
-    drawPart(bodyPosBuffer, bodyNormalBuffer, bodyColorBuffer, bodyIndexBuffer, modelLeg2Matrix, viewMatrix, projectionMatrix);
+    drawPart(bodyPosBuffer, bodyNormalBuffer, bodyColorBuffer, bodyIndexBuffer, null, modelLeg2Matrix, viewMatrix, projectionMatrix, shaderProgram);
 
     // Draw Legs
     var modelLeg3Matrix = mat4.create();
@@ -222,7 +303,7 @@ function start() {
     var t4 = mat4.create();
     mat4.fromTranslation(t4, [-1.25, -0.5, 1]);
     mat4.multiply(modelLeg3Matrix, modelLeg3Matrix, t4);
-    drawPart(bodyPosBuffer, bodyNormalBuffer, bodyColorBuffer, bodyIndexBuffer, modelLeg3Matrix, viewMatrix, projectionMatrix);
+    drawPart(bodyPosBuffer, bodyNormalBuffer, bodyColorBuffer, bodyIndexBuffer, null, modelLeg3Matrix, viewMatrix, projectionMatrix, shaderProgram);
 
     // Draw Legs
     var modelLeg4Matrix = mat4.create();
@@ -231,13 +312,13 @@ function start() {
     var t5 = mat4.create();
     mat4.fromTranslation(t5, [-1.25, -0.5, -1]);
     mat4.multiply(modelLeg4Matrix, modelLeg4Matrix, t5);
-    drawPart(bodyPosBuffer, bodyNormalBuffer, bodyColorBuffer, bodyIndexBuffer, modelLeg4Matrix, viewMatrix, projectionMatrix);
-
+    drawPart(bodyPosBuffer, bodyNormalBuffer, bodyColorBuffer, bodyIndexBuffer, null, modelLeg4Matrix, viewMatrix, projectionMatrix, shaderProgram);
+    */
   }
 
   slider1.addEventListener("input", draw);
   slider2.addEventListener("input", draw);
-  draw();
+  initTextureThenDraw();
 }
 
 window.onload = start;
