@@ -81,7 +81,6 @@ function start() {
       -1, -1, -1, 1, -1, -1, 1, -1, 1, -1, -1, 1,
       1, -1, -1, -1, -1, -1, -1, 1, -1, 1, 1, -1]);
 
-  // vertex normals
   var vertexNormals = new Float32Array([
     0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1,
     -1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0,
@@ -91,7 +90,6 @@ function start() {
     0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1
   ]);
 
-  // vertex colors
   var vertexColors = new Float32Array([
     0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1,
     1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0,
@@ -101,7 +99,6 @@ function start() {
     0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1
   ]);
 
-  // vertex texture coordinates
   var vertexTextureCoords = new Float32Array([
     0, 0,   0.25, 0,   0.25, 1,   0, 1,
     1, 0,   1, 1,   0.75, 1,   0.75, 0,
@@ -111,7 +108,6 @@ function start() {
     0.75, 1,   0.5, 1,   0.5, 0,   0.75, 0
   ]);
 
-  // element index array
   var triangleIndices = new Uint8Array([
     0, 1, 2, 0, 2, 3,    // front
     4, 5, 6, 4, 6, 7,    // right
@@ -121,39 +117,30 @@ function start() {
     20, 21, 22, 20, 22, 23       // back
   ]);
 
-  // we need to put the vertices into a buffer so we can
-  // block transfer them to the graphics hardware
-  var trianglePosBuffer = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, trianglePosBuffer);
-  gl.bufferData(gl.ARRAY_BUFFER, vertexPos, gl.STATIC_DRAW);
-  trianglePosBuffer.itemSize = 3;
-  trianglePosBuffer.numItems = 24;
+  // Buffers
+  var trianglePosBuffer = createBuffer(vertexPos, false, false);
+  trianglePosBuffer.numItems = triangleIndices.length;
 
-  // a buffer for normals
-  var triangleNormalBuffer = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, triangleNormalBuffer);
-  gl.bufferData(gl.ARRAY_BUFFER, vertexNormals, gl.STATIC_DRAW);
-  triangleNormalBuffer.itemSize = 3;
-  triangleNormalBuffer.numItems = 24;
+  var triangleNormalBuffer = createBuffer(vertexNormals);
+  triangleNormalBuffer.numItems = vertexNormals.length;
 
-  // a buffer for colors
-  var colorBuffer = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
-  gl.bufferData(gl.ARRAY_BUFFER, vertexColors, gl.STATIC_DRAW);
-  colorBuffer.itemSize = 3;
-  colorBuffer.numItems = 24;
+  var colorBuffer = createBuffer(vertexColors);
+  colorBuffer.numItems = vertexColors.length;
 
-  // a buffer for textures
-  var textureBuffer = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, textureBuffer);
-  gl.bufferData(gl.ARRAY_BUFFER, vertexTextureCoords, gl.STATIC_DRAW);
-  textureBuffer.itemSize = 2;
-  textureBuffer.numItems = 24;
+  var textureBuffer = createBuffer(vertexTextureCoords, false, true);
+  textureBuffer.numItems = vertexTextureCoords.length / 2;
 
-  // a buffer for indices
-  var indexBuffer = gl.createBuffer();
-  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
-  gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, triangleIndices, gl.STATIC_DRAW);
+  var indexBuffer = createBuffer(triangleIndices, true);
+
+  // Helper to create buffers
+  function createBuffer(data, isIndexBuffer = false, isTextureBuffer = false) {
+    var buffer = gl.createBuffer();
+    var target = isIndexBuffer ? gl.ELEMENT_ARRAY_BUFFER : gl.ARRAY_BUFFER;
+    gl.bindBuffer(target, buffer);
+    gl.bufferData(target, data, gl.STATIC_DRAW);
+    if (!isIndexBuffer) buffer.itemSize = isTextureBuffer ? 2 : 3;
+    return buffer;
+  }
 
   // Set up texture
   var texture1 = gl.createTexture();
