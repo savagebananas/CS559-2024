@@ -143,17 +143,20 @@ function start() {
   }
 
   // Set up texture
-  var texture1 = gl.createTexture();
-  gl.activeTexture(gl.TEXTURE0);
-  gl.bindTexture(gl.TEXTURE_2D, texture1);
-  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+  var texture1 = setupTexture();
   var image1 = new Image();
 
-  var texture2 = gl.createTexture();
-  gl.activeTexture(gl.TEXTURE1);
-  gl.bindTexture(gl.TEXTURE_2D, texture2);
-  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+  var texture2 = setupTexture();
   var image2 = new Image();
+
+  // Helper to setup textures
+  function setupTexture(){
+    var texture = gl.createTexture();
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, texture);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+    return texture;
+  }
 
   function initTextureThenDraw() {
     image1.onload = function () { loadTexture(image1, texture1); };
