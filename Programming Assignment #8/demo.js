@@ -220,7 +220,7 @@ function start() {
 
     image2.onload = function () { loadTexture(image2, texture2); };
     image2.crossOrigin = "anonymous";
-    image2.src = "https://farm6.staticflickr.com/5726/30206830053_87e9530b48_b.jpg";
+    image2.src = "https://live.staticflickr.com/65535/54196260182_78a0c6defb_o.png";
 
     window.setTimeout(draw, 200);
   }
@@ -264,6 +264,8 @@ function start() {
     gl.vertexAttribPointer(shaderPrgm.ColorAttribute, colorBuffer.itemSize,
       gl.FLOAT, false, 0, 0);
 
+    // set index buffer
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
 
     // Bind Texture
     if (textureBuffer != null) {
@@ -305,7 +307,7 @@ function start() {
     mat4.fromTranslation(translation, [0, -0.45, 0]);
     mat4.multiply(skyBoxModelMatrix, skyBoxModelMatrix, translation);
 
-    //drawPart(trianglePosBuffer, triangleNormalBuffer, colorBuffer, indexBuffer, textureBuffer, skyBoxModelMatrix, viewMatrix, projectionMatrix, shaderProgram);
+    drawPart(trianglePosBuffer, triangleNormalBuffer, colorBuffer, indexBuffer, textureBuffer, skyBoxModelMatrix, viewMatrix, projectionMatrix, shaderProgram);
     
     var campfireParentMatrix = mat4.create();
 
