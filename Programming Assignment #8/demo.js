@@ -72,7 +72,7 @@ function start() {
   gl.uniform1i(shaderProgram.texSampler2, 1);
 
 
-  // vertex positions
+//#region cube with horizontal texture wrap (sky box)
   var vertexPos = new Float32Array(
     [1, 1, 1, -1, 1, 1, -1, -1, 1, 1, -1, 1,
       1, 1, 1, 1, -1, 1, 1, -1, -1, 1, 1, -1,
@@ -116,21 +116,76 @@ function start() {
     16, 17, 18, 16, 18, 19,    // bottom
     20, 21, 22, 20, 22, 23       // back
   ]);
+  //#endregion
 
-  // Buffers
+//#region log
+  var logVertexPos = new Float32Array([
+    6,4,2,   6,0,4,   6,4,-2,    6,0,-4, // front
+    6,4,-2,  6,0,-4,  -6,4,-2,  -6,0,-4, // right
+    6,4,2,   6,4,-2,  -6,4,2,   -6,4,-2, // top
+    -6,4,2, -6,0,4,    6,4,2,    6,0,4,  // left
+    6,0,4,   6,0,-4,  -6,0,4,   -6,0,-4, // bottom
+    -6,4,-2, -6,0,-4, -6,4,2,    -6,0,4  // back
+    ]);
+
+  var logVertexNormals = new Float32Array([
+    0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1,
+    -1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0,
+    0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0,
+    1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0,
+    0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0,
+    0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1
+  ]);
+
+  var logVertexColors = new Float32Array([
+    0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1,
+    1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0,
+    0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0,
+    1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0,
+    1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1,
+    0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1
+  ]);
+
+  var logVertexTextureCoords = new Float32Array([
+    0, 0,   0.25, 0,   0.25, 1,   0, 1,
+    1, 0,   1, 1,   0.75, 1,   0.75, 0,
+    0, 1,   0, 0,   1, 0,   1, 1,
+    0.25, 0,   0.5, 0,   0.5, 1,   0.25, 1,
+    1, 1,   0, 1,   0, 0,   1, 0,
+    0.75, 1,   0.5, 1,   0.5, 0,   0.75, 0
+  ]);
+
+  var logTriangleIndices = new Uint8Array([
+    0, 1, 2, 2, 3, 1,    // front
+    4, 5, 6, 6, 7, 5,    // right
+    8, 9, 10, 10, 11, 9,   // top
+    12, 13, 14, 14, 15, 13,    // left
+    16, 17, 18, 18, 19, 17,    // bottom
+    20, 21, 22, 22, 23, 21       // back
+  ]);
+  //#endregion
+  
+  // Skybox Buffers
   var trianglePosBuffer = createBuffer(vertexPos, false, false);
   trianglePosBuffer.numItems = triangleIndices.length;
-
   var triangleNormalBuffer = createBuffer(vertexNormals);
   triangleNormalBuffer.numItems = vertexNormals.length;
-
   var colorBuffer = createBuffer(vertexColors);
   colorBuffer.numItems = vertexColors.length;
-
   var textureBuffer = createBuffer(vertexTextureCoords, false, true);
   textureBuffer.numItems = vertexTextureCoords.length / 2;
-
   var indexBuffer = createBuffer(triangleIndices, true);
+
+  // Log Buffers
+  var logTrianglePosBuffer = createBuffer(logVertexPos, false, false);
+  logTrianglePosBuffer.numItems = logTriangleIndices.length;
+  var logTriangleNormalBuffer = createBuffer(logVertexNormals);
+  logTriangleNormalBuffer.numItems = logVertexNormals.length;
+  var logColorBuffer = createBuffer(logVertexColors);
+  logColorBuffer.numItems = logVertexColors.length;
+  var logTextureBuffer = createBuffer(logVertexTextureCoords, false, true);
+  logTextureBuffer.numItems = logVertexTextureCoords.length / 2;
+  var logIndexBuffer = createBuffer(logTriangleIndices, true);
 
   // Helper to create buffers
   function createBuffer(data, isIndexBuffer = false, isTextureBuffer = false) {
@@ -230,8 +285,8 @@ function start() {
     var angle1 = slider1.value * 0.01 * Math.PI;
     var angle2 = slider2.value;
 
-    var eye = [20 * Math.sin(angle1), 1, 20 * Math.cos(angle1)];
-    var target = [0, 2, 0];
+    var eye = [20 * Math.sin(angle1), 7, 20 * Math.cos(angle1)];
+    var target = [0, 0, 0];
     var up = [0, 1, 0];
 
     var viewMatrix = mat4.create();
@@ -250,7 +305,17 @@ function start() {
     mat4.fromTranslation(translation, [0, -0.45, 0]);
     mat4.multiply(skyBoxModelMatrix, skyBoxModelMatrix, translation);
 
-    drawPart(trianglePosBuffer, triangleNormalBuffer, colorBuffer, indexBuffer, textureBuffer, skyBoxModelMatrix, viewMatrix, projectionMatrix, shaderProgram);
+    //drawPart(trianglePosBuffer, triangleNormalBuffer, colorBuffer, indexBuffer, textureBuffer, skyBoxModelMatrix, viewMatrix, projectionMatrix, shaderProgram);
+    
+    var campfireParentMatrix = mat4.create();
+
+    var logModelMatrix = mat4.create();
+    mat4.fromScaling(logModelMatrix, [1, 1, 1]);
+    //var translation = mat4.create();
+    //mat4.fromTranslation(translation, [0, -0.45, 0]);
+    //mat4.multiply(skyBoxModelMatrix, skyBoxModelMatrix, translation);
+    drawPart(logTrianglePosBuffer, logTriangleNormalBuffer, logColorBuffer, logIndexBuffer, logTextureBuffer, logModelMatrix, viewMatrix, projectionMatrix, shaderProgram);
+
   }
 
   slider1.addEventListener("input", draw);
