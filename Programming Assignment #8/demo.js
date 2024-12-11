@@ -427,7 +427,6 @@ function start() {
   var fireOffset = 0;
   var fireOffset2 = 0;
 
-
   function sliderUpdateValues(){
     camAngleOrbit = slider1.value * 0.01 * Math.PI; // camera angle
     camAngleVertical = slider2.value * 0.03; 
@@ -534,10 +533,9 @@ function start() {
     drawPart(grassTrianglePosBuffer, grassTriangleNormalBuffer, grassColorBuffer, grassIndexBuffer, grassTextureBuffer, grassModelMatrix, viewMatrix, projectionMatrix, groundShaderProgram);
     
     //#endregion
+    
     requestAnimationFrame(draw);
   }
-
-
 
   slider1.addEventListener("input", sliderUpdateValues);
   slider2.addEventListener("input", sliderUpdateValues);
