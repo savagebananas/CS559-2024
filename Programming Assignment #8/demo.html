@@ -36,7 +36,53 @@
       uniform mat3 uMVn;
       uniform sampler2D texSampler1;
 
-      const vec3  lightV    = vec3(0,-1.0,0);
+      const vec3  lightV    = vec3(0,1.0,0);
+      const float lightI    = 1.0;               // only for diffuse component
+      const float ambientC  = 0.5;
+      const float diffuseC  = 0.9;
+      const float specularC = 0.3;
+      const float specularE = 32.0;
+      const vec3  lightCol  = vec3(1.0,1.0,0.0);
+      const vec3  objectCol = vec3(1.0,1.0, 1.0); // yellow-ish orange
+
+      uniform float time;
+
+
+      float Posterize(float val, float steps) 
+      { 
+        return floor(val * steps)  / steps; 
+      }
+
+      void main(void) {
+
+
+
+        vec3 texColor = texture2D(texSampler1,fTexCoord).rgb;
+        
+
+        const float blackThreshold = 0.7; 
+        if (length(texColor) <= blackThreshold) {
+          discard; // Discard black pixels entirely
+      }
+
+
+        float step = 200.0;
+        vec3 posterized = vec3(Posterize(texColor.r, step), Posterize(texColor.g, step), Posterize(texColor.b, step));
+        gl_FragColor =  vec4(posterized, 1.0) ;
+      }
+    </script>
+
+    <script id="logFragmentShader" type="not-js">
+      precision highp float;
+      varying vec3 fPosition;
+      varying vec3 fColor;
+      varying vec3 fNormal;
+      varying vec2 fTexCoord;
+      uniform mat4 uMV;
+      uniform mat3 uMVn;
+      uniform sampler2D texSampler1;
+
+      const vec3  lightV    = vec3(0,1.0,0);
       const float lightI    = 1.0;               // only for diffuse component
       const float ambientC  = 0.5;
       const float diffuseC  = 0.9;
@@ -80,6 +126,60 @@
       }
     </script>
 
+    <script id="groundFragmentShader" type="not-js">
+      precision highp float;
+      varying vec3 fPosition;
+      varying vec3 fColor;
+      varying vec3 fNormal;
+      varying vec2 fTexCoord;
+      uniform mat4 uMV;
+      uniform mat3 uMVn;
+      uniform sampler2D texSampler1;
+
+      const vec3  lightV    = vec3(0,1.0,0);
+      const float lightI    = 1.0;               // only for diffuse component
+      const float ambientC  = 0.5;
+      const float diffuseC  = 0.9;
+      const float specularC = 0.3;
+      const float specularE = 32.0;
+      const vec3  lightCol  = vec3(1.0,1.0,0.0);
+      const vec3  objectCol = vec3(1.0,1.0, 1.0); // yellow-ish orange
+
+      uniform float time;
+
+      vec2 blinnPhongDir(vec3 lightDir, vec3 n, float lightInt, float Ka,
+        float Kd, float Ks, float shininess) {
+        vec3 s = normalize(lightDir);
+        vec3 v = normalize(-fPosition);
+        vec3 h = normalize(v+s);
+        float diffuse = Ka + Kd * lightInt * max(0.0, dot(n, s));
+        float spec =  Ks * pow(max(0.0, dot(n,h)), shininess);
+        return vec2(diffuse, spec);
+      }
+
+      float Posterize(float val, float steps) 
+      { 
+        return floor(val * steps)  / steps; 
+      }
+
+      void main(void) {
+        vec3 texColor=texture2D(texSampler1,fTexCoord).xyz;
+
+        vec3 n = normalize(uMVn * fNormal);
+        vec3 ColorS  = blinnPhongDir(lightV,n,0.0   ,0.0,     0.0,     specularC,specularE).y*lightCol;
+        vec3 ColorAD = blinnPhongDir(lightV,n,lightI,ambientC,diffuseC,0.0,      1.0      ).x*texColor;
+        
+        float gradient = abs(sin(fPosition.y + time));
+        vec3 aColor = mix(fColor, objectCol, gradient);
+        
+        vec3 finalColor = ColorS + ColorAD;
+        float step = 8.0;
+        vec3 posterized = 
+        vec3(Posterize(finalColor.r, step), Posterize(finalColor.g, step), Posterize(finalColor.b, step));
+        gl_FragColor =  vec4(posterized, 1.0) ;
+      }
+    </script>
+
     <script id="skyFragmentShader" type="not-js">
       precision highp float;
       varying vec3 fPosition;
@@ -98,21 +198,26 @@
       }
 
       void main(void) {
-        vec3 texColor=texture2D(texSampler1,fTexCoord).xyz;
+        vec3 texColor=texture2D(texSampler1,fTexCoord).rgb;
 
-        vec3 constantLightColor = texColor;
+        float blueStrength = texColor.b - max(texColor.r, texColor.g); // Blue prominence
 
-        float step = 200.0;
-        vec3 posterized = 
-        vec3(Posterize(constantLightColor.r, step), Posterize(constantLightColor.g, step), Posterize(constantLightColor.b, step));
-        gl_FragColor =  vec4(posterized, 1.0) ;
+        // If blue is prominent, darken it
+        vec3 darkenedColor = texColor;
+        if (blueStrength >= 0.0) { 
+            darkenedColor.r *= 0.3; 
+            darkenedColor.b *= 0.3; 
+            darkenedColor.g *= 0.2; 
+        }
+
+        gl_FragColor =  vec4(darkenedColor, 1.0) ;
       }
     </script>
 
     <canvas id="mycanvas" width="500" height="500"></canvas>
     <br>
     <input id="slider1" type="range" min="-100" max="100" />
-    <input id="slider2" type="range" min="-100" max="100" />
+    <input id="slider2" type="range" min="-0" max="200" />
     <script type="text/javascript" src="gl-matrix-min.js"></script>
     <script src="demo.js" id="module"></script>
   </body>

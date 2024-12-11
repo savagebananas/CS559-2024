@@ -14,7 +14,9 @@ function start() {
   // Read shader source
   var vertexSource = document.getElementById("vertexShader").text;
   var skyFragmentSource = document.getElementById("skyFragmentShader").text; // skybox
+  var logFragmentSource = document.getElementById("logFragmentShader").text;
   var fireFragmentSource = document.getElementById("fireFragmentShader").text;
+  var groundFragmentSource = document.getElementById("groundFragmentShader").text;
 
   //#region Shader Setup
 
@@ -135,9 +137,9 @@ function start() {
     ]);
 
   var logVertexNormals = new Float32Array([
-    0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1,
-    -1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0, 0,
-    0, -1, 0, 0, -1, 0, 0, -1, 0, 0, -1, 0,
+    0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1,
+    1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0,
+    0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0,
     1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0,
     0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0,
     0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1
@@ -171,9 +173,98 @@ function start() {
   ]);
   //#endregion
   
+  //#region Fire arrays
+
+  var fireVertexPos = new Float32Array([
+    4,8,0,   4,0,0,   -4,8,0,    -4,0,0, // side 1
+    0,8,4,   0,0,4,   0,8,-4,    0,0,-4, // side 2
+    0,0,0, 0,0,0, 0,0,0,    0,0,0,  
+    0,0,0, 0,0,0, 0,0,0,    0,0,0, 
+    0,0,0, 0,0,0, 0,0,0,    0,0,0,  
+    0,0,0, 0,0,0, 0,0,0,    0,0,0,  
+    ]);
+
+  var fireVertexNormals = new Float32Array([
+    0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1,
+    1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0,
+    0,0,0, 0,0,0, 0,0,0,    0,0,0,  
+    0,0,0, 0,0,0, 0,0,0,    0,0,0, 
+    0,0,0, 0,0,0, 0,0,0,    0,0,0,  
+    0,0,0, 0,0,0, 0,0,0,    0,0,0,  
+  ]);
+
+  var fireVertexColors = new Float32Array([
+    0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1,
+    1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0,
+    0,0,0, 0,0,0, 0,0,0,    0,0,0,  
+    0,0,0, 0,0,0, 0,0,0,    0,0,0, 
+    0,0,0, 0,0,0, 0,0,0,    0,0,0,  
+    0,0,0, 0,0,0, 0,0,0,    0,0,0,  
+  ]);
+
+  var fireVertexTextureCoords = new Float32Array([
+    0, 0,   0, 1,   1, 0,   1, 1,
+    0, 0,   0, 1,   1, 0,   1, 1,
+  ]);
+
+  var fireTriangleIndices = new Uint8Array([
+    0, 1, 2, 2, 3, 1,    // side 1
+    4, 5, 6, 6, 7, 5,    // side 2
+    10, 7, 8, 9, 8, 10,
+    10, 7, 8, 9, 8, 10,
+    10, 7, 8, 9, 8, 10,
+    10, 7, 8, 9, 8, 10,    
+  ]);
+
+  //#endregion
+
+  //#region Grass arrays
+
+  var grassVertexPos = new Float32Array([
+    1,0,1, 1,0,-1, -1,0,1, -1,0,-1,
+    0,0,0, 0,0,0, 0,0,0, 0,0,0,
+    0,0,0, 0,0,0, 0,0,0, 0,0,0,  
+    0,0,0, 0,0,0, 0,0,0, 0,0,0, 
+    0,0,0, 0,0,0, 0,0,0, 0,0,0,  
+    0,0,0, 0,0,0, 0,0,0, 0,0,0, 
+    ]);
+
+  var grassVertexNormals = new Float32Array([
+    0,1,0, 0,1,0, 0,1,0, 0,1,0,  
+    0,0,0, 0,0,0, 0,0,0, 0,0,0,
+    0,0,0, 0,0,0, 0,0,0, 0,0,0,  
+    0,0,0, 0,0,0, 0,0,0, 0,0,0, 
+    0,0,0, 0,0,0, 0,0,0, 0,0,0,  
+    0,0,0, 0,0,0, 0,0,0, 0,0,0, 
+  ]);
+
+  var grassVertexColors = new Float32Array([
+    0,1,0, 0,1,0, 0,1,0, 0,1,0,  
+    0,0,0, 0,0,0, 0,0,0, 0,0,0,
+    0,0,0, 0,0,0, 0,0,0, 0,0,0,  
+    0,0,0, 0,0,0, 0,0,0, 0,0,0, 
+    0,0,0, 0,0,0, 0,0,0, 0,0,0,  
+    0,0,0, 0,0,0, 0,0,0, 0,0,0, 
+  ]);
+
+  var grassVertexTextureCoords = new Float32Array([
+    0, 0,   0, 1,   1, 0,   1, 1,
+  ]);
+
+  var grassTriangleIndices = new Uint8Array([
+    0, 1, 2, 2, 3, 1,    // side 1
+    10, 7, 8, 9, 8, 10,
+    10, 7, 8, 9, 8, 10,
+    10, 7, 8, 9, 8, 10,
+    10, 7, 8, 9, 8, 10,
+    10, 7, 8, 9, 8, 10,    
+  ]);
+
+  //#endregion
+
   //#region Buffers
 
-  //Skybox Buffers
+  //Skybox Buffers (horizontal texture wrap)
   var trianglePosBuffer = createBuffer(vertexPos, false, false);
   trianglePosBuffer.numItems = triangleIndices.length;
   var triangleNormalBuffer = createBuffer(vertexNormals);
@@ -194,6 +285,28 @@ function start() {
   var logTextureBuffer = createBuffer(logVertexTextureCoords, false, true);
   logTextureBuffer.numItems = logVertexTextureCoords.length / 2;
   var logIndexBuffer = createBuffer(logTriangleIndices, true);
+
+  // Fire Buffers
+  var fireTrianglePosBuffer = createBuffer(fireVertexPos, false, false);
+  fireTrianglePosBuffer.numItems = fireTriangleIndices.length;
+  var fireTriangleNormalBuffer = createBuffer(fireVertexNormals);
+  fireTriangleNormalBuffer.numItems = fireVertexNormals.length;
+  var fireColorBuffer = createBuffer(fireVertexColors);
+  fireColorBuffer.numItems = fireVertexColors.length;
+  var fireTextureBuffer = createBuffer(fireVertexTextureCoords, false, true);
+  fireTextureBuffer.numItems = fireVertexTextureCoords.length / 2;
+  var fireIndexBuffer = createBuffer(fireTriangleIndices, true);
+
+  // Grass Buffers
+  var grassTrianglePosBuffer = createBuffer(grassVertexPos, false, false);
+  grassTrianglePosBuffer.numItems = grassTriangleIndices.length;
+  var grassTriangleNormalBuffer = createBuffer(grassVertexNormals);
+  grassTriangleNormalBuffer.numItems = grassVertexNormals.length;
+  var grassColorBuffer = createBuffer(grassVertexColors);
+  grassColorBuffer.numItems = grassVertexColors.length;
+  var grassTextureBuffer = createBuffer(grassVertexTextureCoords, false, true);
+  grassTextureBuffer.numItems = grassVertexTextureCoords.length / 2;
+  var grassIndexBuffer = createBuffer(grassTriangleIndices, true);
 
   // Helper to create buffers
   function createBuffer(data, isIndexBuffer = false, isTextureBuffer = false) {
@@ -226,10 +339,16 @@ function start() {
   gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
   var image3 = new Image();
 
+  var texture4 = gl.createTexture();
+  gl.activeTexture(gl.TEXTURE3);
+  gl.bindTexture(gl.TEXTURE_2D, texture4);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+  var image4 = new Image();
+
   function initTextureThenDraw() {
     image1.onload = function () { loadTexture(image1, texture1); };
     image1.crossOrigin = "anonymous";
-    image1.src = "https://live.staticflickr.com/65535/54192900449_2b5e025acb_o.jpg";
+    image1.src = "https://live.staticflickr.com/65535/54196512462_b0fccd7f00_o.png";
 
     image2.onload = function () { loadTexture(image2, texture2); };
     image2.crossOrigin = "anonymous";
@@ -237,7 +356,11 @@ function start() {
 
     image3.onload = function() { loadTexture(image3,texture3); };
     image3.crossOrigin = "anonymous";
-    image3.src = "https://live.staticflickr.com/65535/50641908943_f6ebfef28d_o.jpg";
+    image3.src = "https://live.staticflickr.com/65535/54196414907_1938073353_o.png";
+
+    image4.onload = function() { loadTexture(image4,texture4); };
+    image4.crossOrigin = "anonymous";
+    image4.src = "https://live.staticflickr.com/65535/54197858475_276e1edc6b_o.png";
 
     window.setTimeout(draw, 200);
   }
@@ -296,15 +419,31 @@ function start() {
     gl.drawElements(gl.TRIANGLES, triangleIndices.length, gl.UNSIGNED_BYTE, 0);
   }
 
+  var frame = 0;
+  var camAngleOrbit = slider1.value * 0.01 * Math.PI; // camera angle
+  var camAngleVertical = slider2.value; // camera angle
+  var angle2 = 0; // fire 1
+  var angle3 = Math.PI * 0.5; // fire 2
+  var fireOffset = 0;
+  var fireOffset2 = 0;
+
+
+  function sliderUpdateValues(){
+    camAngleOrbit = slider1.value * 0.01 * Math.PI; // camera angle
+    camAngleVertical = slider2.value * 0.03; 
+  }
+
   function draw() {
-
-    var angle1 = slider1.value * 0.01 * Math.PI;
-    var angle2 = slider2.value;
-
-    var eye = [20 * Math.sin(angle1), 7, 20 * Math.cos(angle1)];
-    var target = [0, 0, 0];
+    frame += 1;
+    angle2 = 0.03 * Math.PI * frame;
+    angle3 = 0.02 * Math.PI * frame;
+    fireOffset = 0.25 * Math.sin(frame * 0.2);
+    fireOffset2 = 0.25 * Math.cos((frame * 0.2) + 3);
+    var eye = [20 * Math.sin(camAngleOrbit), 5, 20 * Math.cos(camAngleOrbit)];
+    var target = [0, camAngleVertical, 0];
     var up = [0, 1, 0];
 
+    console.log(camAngleVertical);
     var viewMatrix = mat4.create();
     mat4.lookAt(viewMatrix, eye, target, up);
 
@@ -316,7 +455,7 @@ function start() {
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
 
-    //#region Skybox
+    //#region Skybox 
 
     // switch shader!
     var shaderProgram = shaderSetup(vertexSource, skyFragmentSource);
@@ -336,11 +475,10 @@ function start() {
     //#region CAMPFIRE
 
     // Switch shaders!
-    var fireShaderProgram = shaderSetup(vertexSource, fireFragmentSource);
-    setupAttributesAndUniforms(fireShaderProgram);
+    var logShaderProgram = shaderSetup(vertexSource, logFragmentSource);
+    setupAttributesAndUniforms(logShaderProgram);
 
     var campfireParentMatrix = mat4.create();
-    mat4.rotate(campfireParentMatrix,campfireParentMatrix, angle2 * 0.05,[0,1,0]); // rotate 90 degree
     var campfireTransform = mat4.create();
     mat4.fromTranslation(campfireTransform, [0, -5, 0]);
     mat4.multiply(campfireParentMatrix, campfireParentMatrix, campfireTransform);
@@ -352,7 +490,7 @@ function start() {
     mat4.multiply(log1ModelMatrix, log1ModelMatrix, campfireParentMatrix);
     gl.activeTexture(gl.TEXTURE0);
     gl.bindTexture(gl.TEXTURE_2D, texture2);
-    drawPart(logTrianglePosBuffer, logTriangleNormalBuffer, logColorBuffer, logIndexBuffer, logTextureBuffer, log1ModelMatrix, viewMatrix, projectionMatrix, fireShaderProgram);
+    drawPart(logTrianglePosBuffer, logTriangleNormalBuffer, logColorBuffer, logIndexBuffer, logTextureBuffer, log1ModelMatrix, viewMatrix, projectionMatrix, logShaderProgram);
 
     // log 2
     var log2ModelMatrix = mat4.create();
@@ -361,13 +499,48 @@ function start() {
     mat4.multiply(log2ModelMatrix, log2ModelMatrix, campfireParentMatrix);
     gl.activeTexture(gl.TEXTURE0);
     gl.bindTexture(gl.TEXTURE_2D, texture2);
-    drawPart(logTrianglePosBuffer, logTriangleNormalBuffer, logColorBuffer, logIndexBuffer, logTextureBuffer, log2ModelMatrix, viewMatrix, projectionMatrix, fireShaderProgram);
+    drawPart(logTrianglePosBuffer, logTriangleNormalBuffer, logColorBuffer, logIndexBuffer, logTextureBuffer, log2ModelMatrix, viewMatrix, projectionMatrix, logShaderProgram);
   
+    // fire
+    // Switch shader
+    var fireShaderProgram = shaderSetup(vertexSource, fireFragmentSource);
+    setupAttributesAndUniforms(fireShaderProgram);
+    var fireModelMatrix = mat4.create();
+    mat4.translate(fireModelMatrix,fireModelMatrix, [0,4 + fireOffset,0]); // move up 0.1
+    mat4.rotate(fireModelMatrix,fireModelMatrix, -angle2,[0,1,0]); 
+    mat4.multiply(fireModelMatrix, fireModelMatrix, campfireParentMatrix);
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, texture3);
+    drawPart(fireTrianglePosBuffer, fireTriangleNormalBuffer, fireColorBuffer, fireIndexBuffer, fireTextureBuffer, fireModelMatrix, viewMatrix, projectionMatrix, fireShaderProgram);
+    mat4.translate(fireModelMatrix,fireModelMatrix, [0,-0.2 + fireOffset2,0]); // move up 0.1
+    mat4.rotate(fireModelMatrix,fireModelMatrix, -angle3 ,[0,1,0]); 
+    drawPart(fireTrianglePosBuffer, fireTriangleNormalBuffer, fireColorBuffer, fireIndexBuffer, fireTextureBuffer, fireModelMatrix, viewMatrix, projectionMatrix, fireShaderProgram);
+
     //#endregion
+  
+    //#region Ground
+
+    // Switch shader
+    var groundShaderProgram = shaderSetup(vertexSource, groundFragmentSource);
+    setupAttributesAndUniforms(groundShaderProgram);
+  
+    var grassModelMatrix = mat4.create();
+    mat4.fromScaling(grassModelMatrix, [100, 1, 100]);
+    var grassTransform = mat4.create();
+    mat4.fromTranslation(grassTransform, [0, -2.5, 0]);
+    mat4.multiply(grassModelMatrix, grassModelMatrix, grassTransform);
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, texture4);
+    drawPart(grassTrianglePosBuffer, grassTriangleNormalBuffer, grassColorBuffer, grassIndexBuffer, grassTextureBuffer, grassModelMatrix, viewMatrix, projectionMatrix, groundShaderProgram);
+    
+    //#endregion
+    requestAnimationFrame(draw);
   }
 
-  slider1.addEventListener("input", draw);
-  slider2.addEventListener("input", draw);
+
+
+  slider1.addEventListener("input", sliderUpdateValues);
+  slider2.addEventListener("input", sliderUpdateValues);
   initTextureThenDraw();
 }
 
