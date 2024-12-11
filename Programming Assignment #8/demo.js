@@ -13,10 +13,20 @@ function start() {
 
   // Read shader source
   var vertexSource = document.getElementById("vertexShader").text;
-  var fragmentSource = document.getElementById("skyFragmentShader").text;
+  var fragmentSource = document.getElementById("skyFragmentShader").text; // skybox
+  var fireFragmentSource = document.getElementById("fragmentShader").text;
 
-  var shaderProgram = shaderSetup(vertexSource, fragmentSource);
 
+  //var shaderProgram = shaderSetup(vertexSource, fragmentSource);
+  //setupAttributesAndUniforms(shaderProgram);
+  //var fireShaderProgram = shaderSetup(vertexSource, fireFragmentSource);
+  //switchShader(vertexSource, fragmentSource);
+
+  function switchShader(vSource, fSource){
+    var shdrPrgm = shaderSetup(vSource, fSource);
+    setupAttributesAndUniforms(shdrPrgm);
+  }
+  
   function shaderSetup(vSource, fSource){
     var vertexShader = compileShader(gl.VERTEX_SHADER, vSource);
     var fragmentShader = compileShader(gl.FRAGMENT_SHADER, fSource);
@@ -48,31 +58,31 @@ function start() {
 
   // with the vertex shader, we need to pass it positions
   // as an attribute - so set up that communication
-  shaderProgram.PositionAttribute = gl.getAttribLocation(shaderProgram, "vPosition");
-  gl.enableVertexAttribArray(shaderProgram.PositionAttribute);
-
-  shaderProgram.NormalAttribute = gl.getAttribLocation(shaderProgram, "vNormal");
-  gl.enableVertexAttribArray(shaderProgram.NormalAttribute);
-
-  shaderProgram.ColorAttribute = gl.getAttribLocation(shaderProgram, "vColor");
-  gl.enableVertexAttribArray(shaderProgram.ColorAttribute);
-
-  shaderProgram.texcoordAttribute = gl.getAttribLocation(shaderProgram, "vTexCoord");
-  gl.enableVertexAttribArray(shaderProgram.texcoordAttribute);
-
-  // this gives us access to the matrix uniform
-  shaderProgram.MVmatrix = gl.getUniformLocation(shaderProgram, "uMV");
-  shaderProgram.MVNormalmatrix = gl.getUniformLocation(shaderProgram, "uMVn");
-  shaderProgram.MVPmatrix = gl.getUniformLocation(shaderProgram, "uMVP");
-
-  // Attach samplers to texture units
-  shaderProgram.texSampler1 = gl.getUniformLocation(shaderProgram, "texSampler1");
-  gl.uniform1i(shaderProgram.texSampler1, 0);
-  shaderProgram.texSampler2 = gl.getUniformLocation(shaderProgram, "texSampler2");
-  gl.uniform1i(shaderProgram.texSampler2, 1);
-
-
-//#region cube with horizontal texture wrap (sky box)
+  function setupAttributesAndUniforms(shdrPrgm){
+    shdrPrgm.PositionAttribute = gl.getAttribLocation(shdrPrgm, "vPosition");
+    gl.enableVertexAttribArray(shdrPrgm.PositionAttribute);
+  
+    shdrPrgm.NormalAttribute = gl.getAttribLocation(shdrPrgm, "vNormal");
+    gl.enableVertexAttribArray(shdrPrgm.NormalAttribute);
+  
+    shdrPrgm.ColorAttribute = gl.getAttribLocation(shdrPrgm, "vColor");
+    gl.enableVertexAttribArray(shdrPrgm.ColorAttribute);
+  
+    shdrPrgm.texcoordAttribute = gl.getAttribLocation(shdrPrgm, "vTexCoord");
+    gl.enableVertexAttribArray(shdrPrgm.texcoordAttribute);
+  
+    // this gives us access to the matrix uniform
+    shdrPrgm.MVmatrix = gl.getUniformLocation(shdrPrgm, "uMV");
+    shdrPrgm.MVNormalmatrix = gl.getUniformLocation(shdrPrgm, "uMVn");
+    shdrPrgm.MVPmatrix = gl.getUniformLocation(shdrPrgm, "uMVP");
+  
+    // Attach samplers to texture units
+    shdrPrgm.texSampler1 = gl.getUniformLocation(shdrPrgm, "texSampler1");
+    gl.uniform1i(shdrPrgm.texSampler1, 0);
+    shdrPrgm.texSampler2 = gl.getUniformLocation(shdrPrgm, "texSampler2");
+    gl.uniform1i(shdrPrgm.texSampler2, 1);
+  }
+//#region Skybox arrays
   var vertexPos = new Float32Array(
     [1, 1, 1, -1, 1, 1, -1, -1, 1, 1, -1, 1,
       1, 1, 1, 1, -1, 1, 1, -1, -1, 1, 1, -1,
@@ -118,14 +128,14 @@ function start() {
   ]);
   //#endregion
 
-//#region log
+//#region Log arrays
   var logVertexPos = new Float32Array([
-    6,4,2,   6,0,4,   6,4,-2,    6,0,-4, // front
-    6,4,-2,  6,0,-4,  -6,4,-2,  -6,0,-4, // right
-    6,4,2,   6,4,-2,  -6,4,2,   -6,4,-2, // top
-    -6,4,2, -6,0,4,    6,4,2,    6,0,4,  // left
-    6,0,4,   6,0,-4,  -6,0,4,   -6,0,-4, // bottom
-    -6,4,-2, -6,0,-4, -6,4,2,    -6,0,4  // back
+    9,4,2,   9,0,4,   9,4,-2,    9,0,-4, // front
+    9,4,-2,  9,0,-4,  -9,4,-2,  -9,0,-4, // right
+    9,4,2,   9,4,-2,  -9,4,2,   -9,4,-2, // top
+    -9,4,2, -9,0,4,    9,4,2,    9,0,4,  // left
+    9,0,4,   9,0,-4,  -9,0,4,   -9,0,-4, // bottom
+    -9,4,-2, -9,0,-4, -9,4,2,    -9,0,4  // back
     ]);
 
   var logVertexNormals = new Float32Array([
@@ -165,7 +175,9 @@ function start() {
   ]);
   //#endregion
   
-  // Skybox Buffers
+  //#region Buffers
+
+  //Skybox Buffers
   var trianglePosBuffer = createBuffer(vertexPos, false, false);
   trianglePosBuffer.numItems = triangleIndices.length;
   var triangleNormalBuffer = createBuffer(vertexNormals);
@@ -197,6 +209,8 @@ function start() {
     return buffer;
   }
 
+  //#endregion
+  
   // Set up texture
   var texture1 = gl.createTexture();
   gl.activeTexture(gl.TEXTURE0);
@@ -280,11 +294,6 @@ function start() {
       gl.bindBuffer(gl.ARRAY_BUFFER, textureBuffer);
       gl.vertexAttribPointer(shaderPrgm.texcoordAttribute, textureBuffer.itemSize,
         gl.FLOAT, false, 0, 0);
-
-      //gl.activeTexture(gl.TEXTURE0);
-      //gl.bindTexture(gl.TEXTURE_2D, texture2);
-      //gl.activeTexture(gl.TEXTURE1);
-      //gl.bindTexture(gl.TEXTURE_2D, texture2);
     }
     
 
@@ -310,6 +319,13 @@ function start() {
     gl.enable(gl.DEPTH_TEST);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
+
+    //#region Skybox
+
+    // switch shader!
+    var shaderProgram = shaderSetup(vertexSource, fragmentSource);
+    setupAttributesAndUniforms(shaderProgram);
+
     var skyBoxModelMatrix = mat4.create();
     mat4.fromScaling(skyBoxModelMatrix, [400, 500, 400]);
     var translation = mat4.create();
@@ -319,18 +335,39 @@ function start() {
     gl.bindTexture(gl.TEXTURE_2D, texture1);
     drawPart(trianglePosBuffer, triangleNormalBuffer, colorBuffer, indexBuffer, textureBuffer, skyBoxModelMatrix, viewMatrix, projectionMatrix, shaderProgram);
     
+    //#endregion
+
+    //#region CAMPFIRE
+
+    // Switch shaders!
+    var fireShaderProgram = shaderSetup(vertexSource, fireFragmentSource);
+    setupAttributesAndUniforms(fireShaderProgram);
 
     var campfireParentMatrix = mat4.create();
+    mat4.rotate(campfireParentMatrix,campfireParentMatrix, angle2 * 0.05,[0,1,0]); // rotate 90 degree
+    var campfireTransform = mat4.create();
+    mat4.fromTranslation(campfireTransform, [0, -5, 0]);
+    mat4.multiply(campfireParentMatrix, campfireParentMatrix, campfireTransform);
 
-    var logModelMatrix = mat4.create();
-    mat4.fromScaling(logModelMatrix, [1, 1, 1]);
-    //var translation = mat4.create();
-    //mat4.fromTranslation(translation, [0, -0.45, 0]);
-    //mat4.multiply(skyBoxModelMatrix, skyBoxModelMatrix, translation);
+    // log 1
+    var log1ModelMatrix = mat4.create();
+    mat4.fromScaling(log1ModelMatrix, [0.5, 0.5, 0.5]);
+    mat4.translate(log1ModelMatrix,log1ModelMatrix, [0,0.1,0]); // move up 0.1
+    mat4.multiply(log1ModelMatrix, log1ModelMatrix, campfireParentMatrix);
     gl.activeTexture(gl.TEXTURE0);
     gl.bindTexture(gl.TEXTURE_2D, texture2);
-    drawPart(logTrianglePosBuffer, logTriangleNormalBuffer, logColorBuffer, logIndexBuffer, logTextureBuffer, logModelMatrix, viewMatrix, projectionMatrix, shaderProgram);
+    drawPart(logTrianglePosBuffer, logTriangleNormalBuffer, logColorBuffer, logIndexBuffer, logTextureBuffer, log1ModelMatrix, viewMatrix, projectionMatrix, fireShaderProgram);
 
+    // log 2
+    var log2ModelMatrix = mat4.create();
+    mat4.fromScaling(log2ModelMatrix, [0.5, 0.5, 0.5]);
+    mat4.rotate(log2ModelMatrix,log2ModelMatrix, Math.PI * .5 ,[0,1,0]); // rotate 90 degree
+    mat4.multiply(log2ModelMatrix, log2ModelMatrix, campfireParentMatrix);
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, texture2);
+    drawPart(logTrianglePosBuffer, logTriangleNormalBuffer, logColorBuffer, logIndexBuffer, logTextureBuffer, log2ModelMatrix, viewMatrix, projectionMatrix, fireShaderProgram);
+  
+    //#endregion
   }
 
   slider1.addEventListener("input", draw);
