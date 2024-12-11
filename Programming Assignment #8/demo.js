@@ -13,20 +13,11 @@ function start() {
 
   // Read shader source
   var vertexSource = document.getElementById("vertexShader").text;
-  var fragmentSource = document.getElementById("skyFragmentShader").text; // skybox
-  var fireFragmentSource = document.getElementById("fragmentShader").text;
+  var skyFragmentSource = document.getElementById("skyFragmentShader").text; // skybox
+  var fireFragmentSource = document.getElementById("fireFragmentShader").text;
 
+  //#region Shader Setup
 
-  //var shaderProgram = shaderSetup(vertexSource, fragmentSource);
-  //setupAttributesAndUniforms(shaderProgram);
-  //var fireShaderProgram = shaderSetup(vertexSource, fireFragmentSource);
-  //switchShader(vertexSource, fragmentSource);
-
-  function switchShader(vSource, fSource){
-    var shdrPrgm = shaderSetup(vSource, fSource);
-    setupAttributesAndUniforms(shdrPrgm);
-  }
-  
   function shaderSetup(vSource, fSource){
     var vertexShader = compileShader(gl.VERTEX_SHADER, vSource);
     var fragmentShader = compileShader(gl.FRAGMENT_SHADER, fSource);
@@ -82,7 +73,11 @@ function start() {
     shdrPrgm.texSampler2 = gl.getUniformLocation(shdrPrgm, "texSampler2");
     gl.uniform1i(shdrPrgm.texSampler2, 1);
   }
-//#region Skybox arrays
+
+  //#endregion
+
+  //#region Skybox arrays
+
   var vertexPos = new Float32Array(
     [1, 1, 1, -1, 1, 1, -1, -1, 1, 1, -1, 1,
       1, 1, 1, 1, -1, 1, 1, -1, -1, 1, 1, -1,
@@ -128,7 +123,8 @@ function start() {
   ]);
   //#endregion
 
-//#region Log arrays
+  //#region Log arrays
+
   var logVertexPos = new Float32Array([
     9,4,2,   9,0,4,   9,4,-2,    9,0,-4, // front
     9,4,-2,  9,0,-4,  -9,4,-2,  -9,0,-4, // right
@@ -323,7 +319,7 @@ function start() {
     //#region Skybox
 
     // switch shader!
-    var shaderProgram = shaderSetup(vertexSource, fragmentSource);
+    var shaderProgram = shaderSetup(vertexSource, skyFragmentSource);
     setupAttributesAndUniforms(shaderProgram);
 
     var skyBoxModelMatrix = mat4.create();
