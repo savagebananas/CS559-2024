@@ -198,20 +198,23 @@ function start() {
   }
 
   // Set up texture
-  var texture1 = setupTexture();
+  var texture1 = gl.createTexture();
+  gl.activeTexture(gl.TEXTURE0);
+  gl.bindTexture(gl.TEXTURE_2D, texture1);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
   var image1 = new Image();
 
-  var texture2 = setupTexture();
+  var texture2 = gl.createTexture();
+  gl.activeTexture(gl.TEXTURE1);
+  gl.bindTexture(gl.TEXTURE_2D, texture2);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
   var image2 = new Image();
 
-  // Helper to setup textures
-  function setupTexture(){
-    var texture = gl.createTexture();
-    gl.activeTexture(gl.TEXTURE0);
-    gl.bindTexture(gl.TEXTURE_2D, texture);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
-    return texture;
-  }
+  var texture3 = gl.createTexture();
+  gl.activeTexture(gl.TEXTURE2);
+  gl.bindTexture(gl.TEXTURE_2D, texture3);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+  var image3 = new Image();
 
   function initTextureThenDraw() {
     image1.onload = function () { loadTexture(image1, texture1); };
@@ -220,7 +223,11 @@ function start() {
 
     image2.onload = function () { loadTexture(image2, texture2); };
     image2.crossOrigin = "anonymous";
-    image2.src = "https://live.staticflickr.com/65535/54196260182_78a0c6defb_o.png";
+    image2.src = "https://live.staticflickr.com/65535/54196260182_80e082f823_o.jpg";
+
+    image3.onload = function() { loadTexture(image3,texture3); };
+    image3.crossOrigin = "anonymous";
+    image3.src = "https://live.staticflickr.com/65535/50641908943_f6ebfef28d_o.jpg";
 
     window.setTimeout(draw, 200);
   }
@@ -268,16 +275,18 @@ function start() {
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
 
     // Bind Texture
+    
     if (textureBuffer != null) {
       gl.bindBuffer(gl.ARRAY_BUFFER, textureBuffer);
       gl.vertexAttribPointer(shaderPrgm.texcoordAttribute, textureBuffer.itemSize,
         gl.FLOAT, false, 0, 0);
 
-      gl.activeTexture(gl.TEXTURE0);
-      gl.bindTexture(gl.TEXTURE_2D, texture1);
-      gl.activeTexture(gl.TEXTURE1);
-      gl.bindTexture(gl.TEXTURE_2D, texture2);
+      //gl.activeTexture(gl.TEXTURE0);
+      //gl.bindTexture(gl.TEXTURE_2D, texture2);
+      //gl.activeTexture(gl.TEXTURE1);
+      //gl.bindTexture(gl.TEXTURE_2D, texture2);
     }
+    
 
     gl.drawElements(gl.TRIANGLES, triangleIndices.length, gl.UNSIGNED_BYTE, 0);
   }
@@ -306,9 +315,11 @@ function start() {
     var translation = mat4.create();
     mat4.fromTranslation(translation, [0, -0.45, 0]);
     mat4.multiply(skyBoxModelMatrix, skyBoxModelMatrix, translation);
-
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, texture1);
     drawPart(trianglePosBuffer, triangleNormalBuffer, colorBuffer, indexBuffer, textureBuffer, skyBoxModelMatrix, viewMatrix, projectionMatrix, shaderProgram);
     
+
     var campfireParentMatrix = mat4.create();
 
     var logModelMatrix = mat4.create();
@@ -316,6 +327,8 @@ function start() {
     //var translation = mat4.create();
     //mat4.fromTranslation(translation, [0, -0.45, 0]);
     //mat4.multiply(skyBoxModelMatrix, skyBoxModelMatrix, translation);
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, texture2);
     drawPart(logTrianglePosBuffer, logTriangleNormalBuffer, logColorBuffer, logIndexBuffer, logTextureBuffer, logModelMatrix, viewMatrix, projectionMatrix, shaderProgram);
 
   }
