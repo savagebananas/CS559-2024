@@ -61,7 +61,7 @@
         vec3 texColor = texture2D(texSampler1,fTexCoord).rgb;
 
         const float blackThreshold = 0.7; 
-        if (length(texColor) <= blackThreshold || fPosition.y>6.0) {
+        if (length(texColor) <= blackThreshold || fPosition.y>5.5) {
           discard; // Discard black pixels entirely
       }
 
